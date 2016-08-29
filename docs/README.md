@@ -68,7 +68,8 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 - [ ] TargetUser JBuilder View
 - [ ] Frontend components - User Feature, (PhotoContainer, PhotoItem)
 - [ ] Redux cycle for photo-related components
-- [ ] Justified-Gallery jQuery integration for photo display (http://miromannino.github.io/Justified-Gallery/)
+- [ ] Justified-Gallery jQuery integration for photo display (http://miromannino.github.io/Justified-Gallery/).
+
 ###Phase IV: Follows (1 days)
 
 ####Objective: Users can follow and unfollow each other.  On click, followers/following displays a pop-up list of users.
@@ -83,5 +84,5 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 
 ###Bonus Features (TBD)
 - [ ] Comments
-- [ ] Likes $ Sharing
+- [ ] Likes & Sharing
 - [ ] Tags & Search
