@@ -16,12 +16,12 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 - Production README
 
 ##Design Docs
--[View Wireframes](https://github.com/rossmorey/ANSELpx/blob/master/docs/wireframes/)
--[React Components](https://github.com/rossmorey/ANSELpx/blob/master/docs/component-herarchy.md)
--[API endpoints](https://github.com/rossmorey/ANSELpx/blob/master/docs/api-endpoints.md)
--[DB Schema](https://github.com/rossmorey/ANSELpx/blob/master/docs/schema.md)
--[Redux Structure](https://github.com/rossmorey/ANSELpx/blob/master/docs/redux-structure.md)
--[Sample State](https://github.com/rossmorey/ANSELpx/blob/master/docs/sample-state.md)
+- [View Wireframes](https://github.com/rossmorey/ANSELpx/blob/master/docs/wireframes/)
+- [React Components](https://github.com/rossmorey/ANSELpx/blob/master/docs/component-hierarchy.md)
+- [API endpoints](https://github.com/rossmorey/ANSELpx/blob/master/docs/api-endpoints.md)
+- [DB Schema](https://github.com/rossmorey/ANSELpx/blob/master/docs/schema.md)
+- [Redux Structure](https://github.com/rossmorey/ANSELpx/blob/master/docs/redux-structure.md)
+- [Sample State](https://github.com/rossmorey/ANSELpx/blob/master/docs/sample-state.md)
 
 ##Implementation Timeline
 ###Phase I: Title (X days)
