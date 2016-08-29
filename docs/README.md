@@ -28,54 +28,60 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 
 ####Objective: Develop successful user login/logout/sign-up
 
-[ ] Rails Auth
-[ ] User Model/Migration
-[ ] Session/User Controller -- backend auth
-[ ] StaticPages Controller
-[ ] API Util (to interact with API)
-[ ] User signup/signin components
-[ ] Redux cycle for frontend authentication
-[ ] Seed Users
-[ ] Landing Page Styling
+- [ ] Rails Auth
+- [ ] User Model/Migration
+- [ ] Session/User Controller -- backend auth
+- [ ] StaticPages Controller
+- [ ] API Util (to interact with API)
+- [ ] User signup/signin components
+- [ ] Redux cycle for frontend authentication
+- [ ] Seed Users
+- [ ] Landing Page Styling
 
 ###Phase II: SiteHeader, Photos CR(UD), Feed (2 days)
 
 ####Objective: Once user has logged in, site header is functional: redirects to home, user, and upload pages.  Photos CRUD is up and running. Feed renders.
 
-[ ] Photos Model/Migration
-[ ] JBuilder views for Photos
-[ ] API Util - request/receive photos
-[ ] Frontent components - FeedContainer, FeedItem, SinglePhotoContainer, (PhotoContainer, PhotoItem)
-[ ] Cloudify? integration for photo upload
-[ ] Redux cycle for photo-related components
-[ ] Seed Photos
-[ ] Feed styling
+- [ ] Photos Model/Migration
+- [ ] JBuilder views for Photos
+- [ ] API Util - request/receive photos
+- [ ] Frontent components - FeedContainer, FeedItem, SinglePhotoContainer, (PhotoContainer, PhotoItem)
+- [ ] Cloudify? integration for photo upload
+- [ ] Redux cycle for photo-related components
+- [ ] Seed Photos
+- [ ] Feed styling
 
 ###Phase III: Feed Sidebar & Photos (CR)UD, Single Photo View (2 days)
 
 ####Objective: Feed sidebar shows current user stats and suggestions to follow other uses.  Follow/unfollow not yet functional.
 
-[ ] GoogleMaps integration, for SinglePhotoContainer
-[ ] Frontent components - Sidebar, UserBox, FollowBox, FollowBoxItem
-[ ] Seed Photos Metadata
-[ ] Sidebar styling
+- [ ] GoogleMaps integration, for SinglePhotoContainer
+- [ ] Frontent components - Sidebar, UserBox, FollowBox, FollowBoxItem
+- [ ] Seed Photos Metadata
+- [ ] Sidebar styling
 
 ###Phase IV: User Page (2 days)
 
 ####Objective: User page is up and functional, including page resizing, and image reorganization using Justified-Gallery.
 
-[ ] API Util - request/receive user
-[ ] TargetUser JBuilder View
-[ ] Frontend components - User Feature, (PhotoContainer, PhotoItem)
-[ ] Redux cycle for photo-related components
-[ ] Justified-Gallery jQuery integration for photo display (http://miromannino.github.io/Justified-Gallery/)
+- [ ] API Util - request/receive user
+- [ ] TargetUser JBuilder View
+- [ ] Frontend components - User Feature, (PhotoContainer, PhotoItem)
+- [ ] Redux cycle for photo-related components
+- [ ] Justified-Gallery jQuery integration for photo display (http://miromannino.github.io/Justified-Gallery/)
 ###Phase IV: Follows (1 days)
 
 ####Objective: Users can follow and unfollow each other.  On click, followers/following displays a pop-up list of users.
 
-[ ] Include followers/followed in user JSON view
+- [ ] Follows model/migration
+- [ ] Include followers/followed in user JSON view
+- [ ] Seed follows
+- [ ] API Util methods for follows
+- [ ] Frontend redux cycles
+- [ ] Add pop up for followers/follwed
+- [ ] Adjust styling as necessary
 
 ###Bonus Features (TBD)
-[ ] Comments
-[ ] Likes $ Sharing
-[ ] Tags & Search
+- [ ] Comments
+- [ ] Likes $ Sharing
+- [ ] Tags & Search
