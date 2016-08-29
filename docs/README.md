@@ -1,6 +1,6 @@
 #ANSELpx
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Login Page Mock-up")
+![alt text](https://github.com/rossmorey/ANSELpx/blob/master/docs/wireframes/Login%20Design.png "Login Page Mock-up")
 
 Heroku Link (coming soon)
 
@@ -16,12 +16,12 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 - Production README
 
 ##Design Docs
-View Wireframes
-React Components
-API endpoints
-DB Schema
-Redux Structure
-Sample State
+-[View Wireframes](https://github.com/rossmorey/ANSELpx/blob/master/docs/wireframes/)
+-[React Components](https://github.com/rossmorey/ANSELpx/blob/master/docs/component-herarchy.md)
+-[API endpoints](https://github.com/rossmorey/ANSELpx/blob/master/docs/api-endpoints.md)
+-[DB Schema](https://github.com/rossmorey/ANSELpx/blob/master/docs/schema.md)
+-[Redux Structure](https://github.com/rossmorey/ANSELpx/blob/master/docs/redux-structure.md)
+-[Sample State](https://github.com/rossmorey/ANSELpx/blob/master/docs/sample-state.md)
 
 ##Implementation Timeline
 ###Phase I: Title (X days)
