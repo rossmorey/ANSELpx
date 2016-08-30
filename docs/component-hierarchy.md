@@ -1,7 +1,11 @@
 ## Component Hierarchy
 
-**AuthFormContainer**
-- AuthForm
+**Root**
+**Router**
+**App**
+
+**SessionFormContainer**
+- SessionForm
 
 **HomeContainer**
   - FeedContainer
