@@ -78,8 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: ANSELpx_production
-  username: ANSELpx
-  password: <%= ENV['ANSELPX_DATABASE_PASSWORD'] %>

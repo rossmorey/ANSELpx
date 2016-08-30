@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
 # Use postgresql as the database for Active Record
@@ -45,4 +44,9 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
+end
+
+group :production do
+  gem 'newrelic_rpm'
+  gem 'rails_12factor' # error feedback
 end
