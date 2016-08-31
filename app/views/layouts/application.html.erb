@@ -8,6 +8,8 @@
 </head>
 <body>
 
+  <h1><%= current_user ? current_user.username : "no user" %> </h1>
+
 <%= yield %>
 
 </body>

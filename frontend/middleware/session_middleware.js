@@ -17,7 +17,8 @@ export default ({getState, dispatch}) => next => action => {
       login(action.user, successCallback, errorCallback);
       return next(action);
     case SessionConstants.LOGOUT:
-      logout(() => next(action));
+      // logout(() => next(action));
+      logout((data) => console.log(data));
     case SessionConstants.SIGNUP:
       signup(action.user, successCallback, errorCallback);
       return next(action);

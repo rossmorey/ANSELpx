@@ -4,17 +4,25 @@ class Api::SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
     )
-    # debugger
     if @user
       login(@user)
       render 'api/users/show'
     else
-      render @user.errors.full_messages, status: 422
+      render json: @user.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    logout!
-    render 'api/users/show'
+    @user = current_user
+  		if @user
+  			logout!
+  			render "api/users/show"
+        debugger
+  		else
+  			render(
+          json: ["Nobody signed in"],
+          status: 404
+        )
+  		end
   end
 end

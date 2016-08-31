@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import SessionFormContainer from './session_form/session_form_container';
-import App from './app'; //this should be Feel later on...
+import FeedContainer from './feed/feed_container';
 
 class AppRouter extends React.Component{
   constructor(props){
@@ -40,7 +40,7 @@ class AppRouter extends React.Component{
   render(){
     return(
       <Router history={ hashHistory }>
-        <Route path="/" component={ App } onEnter={this._ensureSignedUp}/>
+        <Route path="/" component={ FeedContainer } onEnter={this._ensureLoggedIn} />
         <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
         <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
       </Router>
