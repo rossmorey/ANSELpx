@@ -1,23 +1,50 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
     this.state = { username: "", password: "" };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("You made it to handlSubmit!");
+    const user = this.state;
+		this.props.processForm({user});
   }
+
+   componentWillReceiveProps(newProps) {
+     if (newProps.loggedIn) {
+        hashHistory.push("/");
+     }
+   }
 
   update(field) {
-    return e => { this.setState({field : e.currentTarget.value}); };
-  }
+		return e => { this.setState({[field]: e.currentTarget.value }); };  }
+
+    renderErrors(){
+  		return(
+  			<ul>
+  				{this.props.errors.map( (error, i) => (
+  					<li key={`error-${i}`}>
+  						{error}
+  					</li>
+  				))}
+  			</ul>
+  		);
+  	}
 
   render() {
+    // const button_val;
+    // if (this.props.formType === 'login') {
+    //   button_val = "Login" }
+    //   else {
+    //
+    //   }
     return (
       <div className="login_form_container">
+        { this.renderErrors() }
         <form onSubmit={this.handleSubmit} className="login_form_box">
           <label>
             Username:
@@ -29,6 +56,7 @@ class SessionForm extends React.Component {
           </label>
           <input type="submit" value="SUBMIT" />
         </form>
+
       </div>
     );
   }
