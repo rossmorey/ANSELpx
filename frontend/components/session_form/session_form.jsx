@@ -36,27 +36,51 @@ class SessionForm extends React.Component {
   	}
 
   render() {
-    // const button_val;
-    // if (this.props.formType === 'login') {
-    //   button_val = "Login" }
-    //   else {
-    //
-    //   }
-    return (
-      <div className="login_form_container">
-        { this.renderErrors() }
-        <form onSubmit={this.handleSubmit} className="login_form_box">
-          <label>
-            Username:
-            <input type="text" value={this.state.username} onChange={this.update("username")}/>
-          </label>
-          <label>
-            Password:
-            <input type="text" value={this.state.password} onChange={this.update("password")}/>
-          </label>
-          <input type="submit" value="SUBMIT" />
-        </form>
+    let formType = this.props.formType;
 
+    let userNameAndPass = () => (
+      <section>
+      <label>
+        Username:
+        <input type="text" value={this.state.username} onChange={this.update("username")}/>
+      </label>
+      <label>
+        Password:
+        <input type="text" value={this.state.password} onChange={this.update("password")}/>
+      </label>
+      </section>
+    );
+
+    let form;
+    if (formType === 'login') {
+      form = () => (
+        <form onSubmit={this.handleSubmit} className="{formType}_form_box">
+          {userNameAndPass()}
+          <input type="submit" value="Login" />
+        </form>
+      );
+    } else {
+      form = () => (
+        <form onSubmit={this.handleSubmit} className="{formType}_form_box">
+          <label>
+            First Name:
+            <input type="text" value={this.state.first_name} onChange={this.update("first_name")}/>
+          </label>
+          <label>
+            Last Name:
+            <input type="text" value={this.state.last_name} onChange={this.update("last_name")}/>
+          </label>
+          {userNameAndPass()}
+          <input type="submit" value="Sign Up" />
+        </form>
+      );
+    }
+
+
+    return (
+      <div className="{formType}_form_container">
+        {this.renderErrors()}
+        {form()}
       </div>
     );
   }

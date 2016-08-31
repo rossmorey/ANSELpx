@@ -37,6 +37,7 @@ class AppRouter extends React.Component{
 
   // <IndexRoute component={  } />
 
+
   render(){
     return(
       <Router history={ hashHistory }>

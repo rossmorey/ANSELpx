@@ -19,7 +19,6 @@ export const signup = function(user, success, error) {
 };
 
 export const logout = function(success){
-	debugger
 	$.ajax({
 		method: 'delete',
 		url: '/api/session',
