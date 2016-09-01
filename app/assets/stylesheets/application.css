@@ -23,15 +23,14 @@ html, body, main, p, div ul li label form h1 h2 h3 {
   	vertical-align: baseline;
 }
 
-body {å
+body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  height:100%;
 }
 
 a {
   text-decoration: none;
   color:inherit;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-weight: 100;
 }
 
@@ -136,6 +135,10 @@ input[type="submit"] {
   cursor: hand;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 200;
+}
+
+.input[type="submit"]:hover {
+  box-shadow: 0 0 65px 10px rgba(255, 255, 255, 0.8);
 }
 
 textarea:focus, input:focus{
