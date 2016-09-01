@@ -23,8 +23,21 @@ html, body, main, p, div ul li label form h1 h2 h3 {
   	vertical-align: baseline;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height:100%;
+}
+
+.app-div {
+  height: 100%;
+}
+
+main {
+  height: 100%
 }
 
 a {
@@ -105,7 +118,8 @@ pre {
 .login_form_container, .signup_form_container {
   background-image: url(http://themoreyfamily.net/SnakeRiver.jpg);
   background-size: cover;
-  height:700px;
+  height:100%;
+  background-position: 50% 50%;
 }
 
 input[type="text"] {
