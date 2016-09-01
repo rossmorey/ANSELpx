@@ -9,7 +9,6 @@ export const login = function(user, success, error) {
 };
 
 export const signup = function(user, success, error) {
-	debugger
 	$.ajax({
 		method: 'POST',
 		url: '/api/users',
