@@ -11,11 +11,10 @@
 ### Session
 - `POST /api/session`
 - `DELETE /api/session`
-- `GET /api/session`
 
 ### Users
-- `GET /api/users/:userId`
 - `POST /api/users`
+- `GET /api/users/:userId`
 - `PATCH /api/users`
 
 ### Photos

@@ -28,15 +28,15 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 
 ####Objective: Develop successful user login/logout/sign-up
 
-- [ ] Rails Auth
-- [ ] User Model/Migration
-- [ ] Session/User Controller -- backend auth
-- [ ] StaticPages Controller
-- [ ] API Util (to interact with API)
-- [ ] User signup/signin components
-- [ ] Redux cycle for frontend authentication
+- [x] Rails Auth
+- [x] User Model/Migration
+- [x] Session/User Controller -- backend auth
+- [x] StaticPages Controller
+- [x] API Util (to interact with API)
+- [x] User signup/signin components
+- [x] Redux cycle for frontend authentication
 - [ ] Seed Users
-- [ ] Landing Page Styling
+- [x] Landing Page Styling
 
 ###Phase II: SiteHeader, Photos CR(UD), Feed (2 days)
 
@@ -79,7 +79,7 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 - [ ] Seed follows
 - [ ] API Util methods for follows
 - [ ] Frontend redux cycles
-- [ ] Add pop up for followers/follwed
+- [ ] Add pop up for followers/followed
 - [ ] Adjust styling as necessary
 
 ###Bonus Features (TBD)
