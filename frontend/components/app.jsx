@@ -1,19 +1,7 @@
 import React from 'react';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <div>In the App!</div>
-      </div>
-    );
-  }
-
-}
-
+const App = ({children}) => (
+  <div>{children}</div>
+);
 
 export default App;

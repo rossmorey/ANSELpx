@@ -3,6 +3,8 @@ import { receiveCurrentUser,
          SessionConstants
        } from '../actions/session_actions';
 
+import { hashHistory } from 'react-router';
+
 import { login, signup, logout } from '../util/session_api_util';
 
 export default ({getState, dispatch}) => next => action => {
@@ -17,8 +19,11 @@ export default ({getState, dispatch}) => next => action => {
       login(action.user, successCallback, errorCallback);
       return next(action);
     case SessionConstants.LOGOUT:
-      logout(() => next(action));
-      // logout((data) => console.log(data));
+      logout(() => {
+        next(action);
+        hashHistory.push('/login');
+      });
+      break;
     case SessionConstants.SIGNUP:
       signup(action.user, successCallback, errorCallback);
       return next(action);

@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import SessionFormContainer from './session_form/session_form_container';
 import FeedContainer from './feed/feed_container';
+import App from './app';
 
 class AppRouter extends React.Component{
   constructor(props){
@@ -35,15 +36,24 @@ class AppRouter extends React.Component{
     }
   }
 
-  // <IndexRoute component={  } />
-
+  // render(){
+  //   return(
+  //     <Router history={ hashHistory }>
+  //       <Route path="/" component={ FeedContainer } onEnter={this._ensureLoggedIn} />
+  //       <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
+  //       <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
+  //     </Router>
+  //   );
+  // }
 
   render(){
     return(
       <Router history={ hashHistory }>
-        <Route path="/" component={ FeedContainer } onEnter={this._ensureLoggedIn} />
-        <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
-        <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
+        <Route path="/" component={ App }>
+          <IndexRoute component={ FeedContainer } onEnter={this._ensureLoggedIn} />
+          <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
+          <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
+        </Route>
       </Router>
     );
   }
