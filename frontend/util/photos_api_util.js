@@ -6,3 +6,13 @@ export const fetchPhotos = function(success, error) {
 		error
 	});
 };
+
+export const sendPhoto = function(photo, success, error) {
+	$.ajax({
+		method:'POST',
+		url: '/api/photos',
+		data: photo,
+		success,
+		error
+	});
+};
