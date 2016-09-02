@@ -92,10 +92,6 @@ pre {
 	line-height: 18.5714px;
 }
 
-.react_root {
-  background:red;
-}
-
 .login_form_box, .signup_form_box {
   padding: 35px;
   display: flex;
@@ -120,7 +116,7 @@ pre {
 }
 
 .login_form_container, .signup_form_container {
-  background-image: url(http://themoreyfamily.net/SnakeRiver.jpg);
+  background-image: url(http://res.cloudinary.com/dhorsi7vf/image/upload/v1472749488/SnakeRiver_jnbisl.jpg);
   background-size: cover;
   height:100%;
   background-position: 50% 50%;
@@ -161,4 +157,71 @@ input[type="submit"]:hover {
 
 textarea:focus, input:focus{
     outline: none;
+}
+
+.navbar {
+  background: #ccc;
+  height: 70px;
+}
+
+img.logo {
+    height: 70px;
+    float: left;
+}
+
+img.user-badge {
+    width: 50px;
+    border-radius: 100px;
+    margin-right:10px;
+    border: solid 2px grey;
+}
+
+button.upload {
+  margin: 0 20px 0 30px;
+}
+
+.user-name {
+  margin: 0;
+}
+
+.user-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-nav-container {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    height: 50px;;
+}
+
+.user-name {
+    display: inline-block;;
+    font-size: 20px;
+    font-weight: 200;
+    color: #535353
+}
+
+.feed-item img{
+  max-width: 100%;
+}
+
+.feed {
+  width: 66.66%
+  padding: 10px
+  padding-top: 20px;
+}
+
+.max-width {
+  width:900px;
+  margin: 0 auto;
+}
+
+.feed-item {
+  background: #535353;
+  padding: 5px
+  margin-bottom: 20px;
 }

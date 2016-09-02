@@ -1,27 +1,26 @@
 import React from 'react';
-// import { withRouter } from 'react-router';
-import { hashHistory } from 'react-router';
+import FeedItem from '../feed_item/feed_item';
 
 class Feed extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    this.props.logout();
+  componentDidMount() {
+    this.props.requestPhotos();
   }
 
   render() {
+    let feedItems = this.props.photos.map((photo) => (
+      <FeedItem details={photo} />
+    ));
+
     return (
-      <div>
-        <div>In the Feed</div>
-        <button onClick={this.handleClick}>Logout</button>
+      <div className="feed">
+        {feedItems}
       </div>
     );
   }
 }
 
-// export default withRouter(Feed);
 export default Feed;

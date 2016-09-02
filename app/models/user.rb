@@ -5,7 +5,13 @@ class User < ActiveRecord::Base
   validates :password_digest, :username, :session_token, :first_name, :last_name, presence: true
   validates :username, :session_token, uniqueness: true
 
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :ensure_view_count
+
+  has_many :photos
+  
+  def ensure_view_count
+    self.views ||= 0
+  end
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
