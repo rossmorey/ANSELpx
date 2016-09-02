@@ -202,7 +202,7 @@ button.upload {
     display: inline-block;;
     font-size: 20px;
     font-weight: 200;
-    color: #535353
+    color: #535353;
 }
 
 .feed-item img{
@@ -210,8 +210,8 @@ button.upload {
 }
 
 .feed {
-  width: 66.66%
-  padding: 10px
+  width: 66.66%;
+  padding: 10px;
   padding-top: 20px;
 }
 
@@ -222,6 +222,6 @@ button.upload {
 
 .feed-item {
   background: #535353;
-  padding: 5px
+  padding: 5px;
   margin-bottom: 20px;
 }
