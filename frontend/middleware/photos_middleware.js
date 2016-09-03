@@ -1,21 +1,24 @@
 import {
   receivePhotos,
+  receivePhoto,
   createPhoto,
   PhotosConstants
 } from '../actions/photos_actions';
 import { fetchPhotos, sendPhoto } from '../util/photos_api_util';
 
 export default ({getState, dispatch}) => next => action => {
-  const successCallback = photos => dispatch(receivePhotos(photos));
+  let successCallback;
   const errorCallback = xhr => {
     const errors = xhr.responseJSON;
     console.log(errors);
   };
   switch(action.type){
     case PhotosConstants.REQUEST_PHOTOS:
+      successCallback = photos => dispatch(receivePhotos(photos));
       fetchPhotos(successCallback, errorCallback);
       return next(action);
     case PhotosConstants.CREATE_PHOTO:
+      successCallback = photo => dispatch(receivePhoto(photo));
       sendPhoto({photo: action.photo}, successCallback, errorCallback);
       return next(action);
     default:

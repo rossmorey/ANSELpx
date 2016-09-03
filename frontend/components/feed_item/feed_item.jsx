@@ -9,7 +9,6 @@ class FeedItem extends React.Component {
     let {description, id, lat, lng, photo_img_url, photo, title, views} =
       this.props.details;
     let {username, user_img_url} = this.props.details.user;
-
     return (
       <div className="feed-item">
         <img src={photo_img_url} />

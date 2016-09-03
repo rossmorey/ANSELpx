@@ -42,12 +42,12 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 
 ####Objective: Once user has logged in, site header is functional: redirects to home, user, and upload pages.  Photos CRUD is up and running. Feed renders.
 
-- [ ] Photos Model/Migration
-- [ ] JBuilder views for Photos
-- [ ] API Util - request/receive photos
-- [ ] Frontent components - FeedContainer, FeedItem, SinglePhotoContainer, (PhotoContainer, PhotoItem)
-- [ ] Cloudify? integration for photo upload
-- [ ] Redux cycle for photo-related components
+- [x] Photos Model/Migration
+- [x] JBuilder views for Photos
+- [x] API Util - request/receive photos
+- [x] Frontent components - FeedContainer, FeedItem, SinglePhotoContainer, (PhotoContainer, PhotoItem)
+- [x] Cloudify? integration for photo upload
+- [x] Redux cycle for photo-related components
 - [ ] Seed Photos
 - [ ] Feed styling
 

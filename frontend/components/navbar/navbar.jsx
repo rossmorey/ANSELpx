@@ -48,27 +48,30 @@ class Navbar extends React.Component {
 
   render() {
     let username;
-    let user_img_url;
+    let userImgUrl;
     if (this.props.currentUser) {
       username = this.props.currentUser.username;
-      user_img_url = this.props.currentUser.user_img_url;
+      userImgUrl = this.props.currentUser.user_img_url;
     } else {
       username = "";
-      user_img_url = "";
+      userImgUrl = "";
     }
     return(
       <div className="navbar">
         <div className="max-width">
-          <img className="logo" src="http://res.cloudinary.com/dhorsi7vf/image/upload/v1472749492/Logo_itosiy.png" />
+          <img className="logo"
+            src="http://res.cloudinary.com/dhorsi7vf/image/upload/v1472749492/Logo_itosiy.png" />
           <div className="left-nav-container">
             <div className="user-display" onClick={this.handleUserClick}>
-              <img className="user-badge" src={user_img_url} />
+              <img className="user-badge" src={userImgUrl} />
               <div className="user-name">
                 <span>{username}</span>
               </div>
             </div>
-            <button className="upload" onClick={this.handleModalClick}>Upload</button>
-            <button className="logout" onClick={this.handleLogoutClick}>Logout</button>
+            <button className="upload"
+              onClick={this.handleModalClick}>Upload</button>
+            <button className="logout"
+               onClick={this.handleLogoutClick}>Logout</button>
 
             <Modal
               isOpen={this.state.modalOpen}
@@ -76,8 +79,13 @@ class Navbar extends React.Component {
               style={ModalStyle}
               onAfterOpen={this.onModalOpen}>
 
-                <button className="closeButton" onClick={this.onModalClose}>CLOSE</button>
-                <UploadEdit createPhoto={this.props.createPhoto}/>
+                <button className="closeButton"
+                  onClick={this.onModalClose}>CLOSE</button>
+                <UploadEdit
+                  createPhoto={this.props.createPhoto}
+                  onModalClose={this.onModalClose}
+                  currentUser={this.props.currentUser}
+                />
             </Modal>
           </div>
         </div>
@@ -87,12 +95,6 @@ class Navbar extends React.Component {
 }
 
 export default Navbar;
-
-
-
-
-// <button className="add-photo" onClick={this.handleUploadClick}>Add Photo</button>
-
 
 
 // <div className="user-dropdown">

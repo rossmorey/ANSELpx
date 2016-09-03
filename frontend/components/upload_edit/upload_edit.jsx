@@ -4,7 +4,12 @@ import Drop from './dropzone';
 class UploadEdit extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {title: "", description: "", photo_img_url: "", user_id: currentUser.id};
+    this.state = {
+      title: "",
+      description: "",
+      photo_img_url: "",
+      user_id: this.props.currentUser.id
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setPhotoUrl = this.setPhotoUrl.bind(this);
@@ -16,6 +21,7 @@ class UploadEdit extends React.Component {
       alert('Please select an image to upload, or if your image is uploading, please wait for upload to complete before clicking submit.');
     } else {
       this.props.createPhoto(this.state);
+      this.props.onModalClose();
     }
   }
 

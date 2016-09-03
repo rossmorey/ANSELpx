@@ -12,7 +12,7 @@ class Feed extends React.Component {
 
   render() {
     let feedItems = this.props.photos.map((photo) => (
-      <FeedItem details={photo} />
+      <FeedItem details={photo} key={photo.created_at} />
     ));
 
     return (
