@@ -9,6 +9,8 @@ class Zone extends React.Component {
       uploadedFile: null,
       uploadedFileCloudinaryUrl: ''
     };
+    this.onImageDrop = this.onImageDrop.bind(this);
+    this.handleImageUpload = this.handleImageUpload.bind(this);
   }
 
   onImageDrop(files) {
@@ -29,6 +31,7 @@ class Zone extends React.Component {
         this.setState({
           uploadedFileCloudinaryUrl: response.body.secure_url
         });
+        this.props.setPhotoUrl(response.body.secure_url);
       }
     });
   }
@@ -37,7 +40,7 @@ class Zone extends React.Component {
     const upload = () => (
       <div className="FileUpload">
         <Dropzone
-          onDrop={this.onImageDrop.bind(this)}
+          onDrop={this.onImageDrop}
           multiple={false}
           accept="image/*">
           {this.state.uploadedFile === null ?

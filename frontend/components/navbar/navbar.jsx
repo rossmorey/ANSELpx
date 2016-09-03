@@ -77,7 +77,7 @@ class Navbar extends React.Component {
               onAfterOpen={this.onModalOpen}>
 
                 <button className="closeButton" onClick={this.onModalClose}>CLOSE</button>
-                <UploadEdit />
+                <UploadEdit createPhoto={this.props.createPhoto}/>
             </Modal>
           </div>
         </div>

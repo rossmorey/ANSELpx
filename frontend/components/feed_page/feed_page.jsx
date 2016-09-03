@@ -10,9 +10,14 @@ class FeedPage extends React.Component {
   render() {
     return(
       <div className="feedPage">
-        <Navbar currentUser={this.props.currentUser} logout={this.props.logout} />
+        <Navbar
+          currentUser={this.props.currentUser}
+          logout={this.props.logout}
+          createPhoto={this.props.createPhoto}
+        />
         <div className="max-width">
-          <Feed photos={this.props.photos} requestPhotos={this.props.requestPhotos} />
+          <Feed photos={this.props.photos}
+            requestPhotos={this.props.requestPhotos} />
         </div>
       </div>
     );
