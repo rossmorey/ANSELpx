@@ -1,0 +1,16 @@
+html, .app-div, main {
+  height: 100%;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height:100%;
+  background: $off-white;
+  font-weight: 200;
+}
+
+.clear:after {
+  content: "";
+  display: block;
+  clear: both;
+}

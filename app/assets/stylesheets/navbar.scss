@@ -1,0 +1,73 @@
+
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid $light-grey;
+  height: 55px;
+}
+
+img.logo {
+    height: 50px;
+    float: left;
+    margin-top: 3px;
+}
+
+img.user-badge {
+    width: 35px;
+    border-radius: 100px;
+    margin-right:10px;
+    margin-top:5px;
+}
+
+button.upload {
+  margin: 0 20px 0 30px;
+  background: $white;
+  background-image: url(http://res.cloudinary.com/dhorsi7vf/image/upload/v1473027425/upload-dark_plrcg4.png);
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 36px;
+  width: 50px;
+  border: none;
+}
+
+button span {
+  display: none;
+}
+
+button.upload:hover {
+  background-image: url(http://res.cloudinary.com/dhorsi7vf/image/upload/v1473027788/upload-light_mdybtl.png);
+  cursor: pointer;
+}
+
+button.upload:focus {outline:0;}
+
+.user-name {
+  margin-top:5px;
+}
+
+.user-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-nav-container {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    height: 30px;;
+}
+
+.user-name {
+    display: inline-block;;
+    font-size: 16px;
+    font-weight: 200;
+    color: #535353;
+}
+
+.drop-zone {
+  width: 50px;
+  height: 50px;
+  color:red;
+}

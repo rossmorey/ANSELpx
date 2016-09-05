@@ -38,27 +38,23 @@ class Zone extends React.Component {
 
   render() {
     const upload = () => (
-      <div className="FileUpload">
         <Dropzone
           onDrop={this.onImageDrop}
           multiple={false}
           accept="image/*">
           {this.state.uploadedFile === null ?
-            <div className="pre-uploading">Drop an image or click to select a file to upload.</div>
+            <div className="pre-uploading">Drop an image or click to select a file.</div>
               :
             <div className="loader">Loading...</div>
           }
         </Dropzone>
-      </div>
     );
 
     const uploadedImage = () => (
-      <div>
         <div>
           <p>{this.state.uploadedFile.name}</p>
           <img src={this.state.uploadedFileCloudinaryUrl} />
         </div>
-      </div>
     );
 
     return (

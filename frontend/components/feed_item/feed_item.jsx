@@ -10,15 +10,19 @@ class FeedItem extends React.Component {
       this.props.details;
     let {username, user_img_url} = this.props.details.user;
     return (
-      <div className="feed-item">
-        <img src={photo_img_url} />
-        <div className="feed-item-meta">
-          <h1>{title}</h1>
-          <p>{description}</p>
-          <img className="user-badge" src={user_img_url} />
-          <p>{username}</p>
+        <div className="feed-item">
+          <img src={photo_img_url} />
+          <div className="feed-item-meta">
+            <div className="user-info clear">
+              <img className="user-badge-small" src={user_img_url} />
+              <div className="user-name">{username}</div>
+            </div>
+            <div className="title-description">
+              <span className="feed-item-title">{title}</span>
+              <span className="feed-item-description">{description}</span>
+            </div>
+          </div>
         </div>
-      </div>
     );
   }
 }

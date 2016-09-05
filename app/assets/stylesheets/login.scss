@@ -1,0 +1,77 @@
+
+.login_form_box, .signup_form_box {
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  background:black;
+  opacity:.7;
+  color: white;
+  width: 350px;
+  margin: 0 auto;
+}
+
+.login_form_box {
+    height: 230px;
+}
+
+.signup_form_box {
+    height: 380px;
+}
+
+.login_form_box a, .signup_form_box a {
+  text-align: right;
+}
+
+.login_form_container, .signup_form_container {
+  background-image: url(http://res.cloudinary.com/dhorsi7vf/image/upload/v1472749488/SnakeRiver_jnbisl.jpg);
+  background-size: cover;
+  height:100%;
+  background-position: 50% 50%;
+}
+
+.login_form_container a {
+  text-decoration: none;
+  color:inherit;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 100;
+}
+
+input[type="text"], textarea {
+  border: none;
+  background-color: rgba(0, 0, 0, .2);
+  color: white;
+  border-bottom: solid 1px white;
+  height:40px;
+  width: 98%;
+  font-size: larger;
+  margin-bottom: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200;
+}
+
+input[type="submit"] {
+  width: 152px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: rgba(0,0,0,.5);
+  color: white;
+  font-size: larger;
+  margin-bottom: 30px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200;
+}
+
+.login_form_container input[type="submit"]:hover {
+  box-shadow: 0px 0px 0px 1px;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.login-header {
+  margin-bottom: 60px;
+}

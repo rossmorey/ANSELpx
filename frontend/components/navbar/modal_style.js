@@ -9,14 +9,19 @@ const ModalStyle = {
    },
    content : {
      position        : 'fixed',
+     width           : '600px',
+     height          : '300px',
+     margin          : 'auto auto',
      top             : '100px',
      left            : '150px',
      right           : '150px',
      bottom          : '100px',
-     border          : '1px solid #ccc',
+     border          : '1px solid #404040',
      padding         : '20px',
      opacity         : '0',
-     transition      : 'opacity .5s'
+     transition      : 'opacity .5s',
+     backgroundColor : '#f5f5f5'
+
    }
 };
 

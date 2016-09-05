@@ -1,5 +1,6 @@
 import React from 'react';
 import Drop from './dropzone';
+import DropStyle from './drop_style';
 
 class UploadEdit extends React.Component {
   constructor(props) {
@@ -35,19 +36,29 @@ class UploadEdit extends React.Component {
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit} >
-        <label>
-          Title:
-          <input type="text" value={this.state.title}
-            onChange={this.update("title")} />
-        </label>
-        <label>
-          Description:
-          <textarea value={this.state.description}
-            onChange={this.update("description")}></textarea>
-        </label>
-        <Drop setPhotoUrl={this.setPhotoUrl}/>
-        <input type="submit" value="Submit" />
+      <form className="upload-form" onSubmit={this.handleSubmit} >
+        <div className="drop-container">
+          <Drop
+            className="drop-zone"
+            setPhotoUrl={this.setPhotoUrl}
+            style={DropStyle}
+          />
+        </div>
+        <div className="vertical-line" />
+        <div className="form-contents">
+          <div className="title">Upload A Photo</div>
+          <input
+            type="text" value={this.state.title}
+            onChange={this.update("title")}
+            placeholder="Title"
+          />
+          <textarea
+            value={this.state.description}
+            onChange={this.update("description")}
+            placeholder="Description"
+          ></textarea>
+        <input type="submit" value="Upload" />
+        </div>
       </form>
     );
   }

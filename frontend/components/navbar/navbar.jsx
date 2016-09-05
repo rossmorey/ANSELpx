@@ -60,7 +60,7 @@ class Navbar extends React.Component {
       <div className="navbar">
         <div className="max-width">
           <img className="logo"
-            src="http://res.cloudinary.com/dhorsi7vf/image/upload/v1472749492/Logo_itosiy.png" />
+            src="http://res.cloudinary.com/dhorsi7vf/image/upload/v1473028116/logo-dark_wbwo2u.png" />
           <div className="left-nav-container">
             <div className="user-display" onClick={this.handleUserClick}>
               <img className="user-badge" src={userImgUrl} />
@@ -69,7 +69,7 @@ class Navbar extends React.Component {
               </div>
             </div>
             <button className="upload"
-              onClick={this.handleModalClick}>Upload</button>
+              onClick={this.handleModalClick}><span>Upload</span></button>
             <button className="logout"
                onClick={this.handleLogoutClick}>Logout</button>
 
@@ -80,12 +80,14 @@ class Navbar extends React.Component {
               onAfterOpen={this.onModalOpen}>
 
                 <button className="closeButton"
-                  onClick={this.onModalClose}>CLOSE</button>
+                  onClick={this.onModalClose}><span>X</span></button>
+
                 <UploadEdit
                   createPhoto={this.props.createPhoto}
                   onModalClose={this.onModalClose}
                   currentUser={this.props.currentUser}
                 />
+
             </Modal>
           </div>
         </div>
