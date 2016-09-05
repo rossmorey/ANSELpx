@@ -1,6 +1,8 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+import DropStyle from './drop_style';
+import DropActiveStyle from './drop_active_style';
 
 class Zone extends React.Component {
   constructor(props) {
@@ -41,9 +43,14 @@ class Zone extends React.Component {
         <Dropzone
           onDrop={this.onImageDrop}
           multiple={false}
-          accept="image/*">
+          accept="image/*"
+          style={DropStyle}
+          activeStyle={DropActiveStyle}>
           {this.state.uploadedFile === null ?
-            <div className="pre-uploading">Drop an image or click to select a file.</div>
+            <div className="pre-uploading">
+              <div className="upload-text">Drop an image or click to select a file.</div>
+              <img className="camera" src="http://res.cloudinary.com/dhorsi7vf/image/upload/v1473089805/camera_r5zsgv.png" />
+            </div>
               :
             <div className="loader">Loading...</div>
           }
@@ -51,9 +58,8 @@ class Zone extends React.Component {
     );
 
     const uploadedImage = () => (
-        <div>
-          <p>{this.state.uploadedFile.name}</p>
-          <img src={this.state.uploadedFileCloudinaryUrl} />
+        <div className="uploaded-image-container">
+          <img className="uploaded-image" src={this.state.uploadedFileCloudinaryUrl} />
         </div>
     );
 

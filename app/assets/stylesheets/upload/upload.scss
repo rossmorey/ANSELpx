@@ -3,7 +3,7 @@
 button.closeButton {
   position:absolute;
   right: 16px;
-  background: $white;
+  background: $off-white;
   background-image: url(http://res.cloudinary.com/dhorsi7vf/image/upload/v1473032745/x-dark_u3kvvn.png);
   background-size: 30px;
   background-repeat: no-repeat;
@@ -20,6 +20,14 @@ button.closeButton span {
 button.closeButton:hover {
   background-image: url(http://res.cloudinary.com/dhorsi7vf/image/upload/v1473032745/x-light_kygwlr.png);
   cursor: pointer;
+}
+
+.pre-uploading {
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin-top: 35px;
+  margin-left: 30px;
 }
 
 .upload-form {
@@ -43,6 +51,7 @@ button.closeButton:hover {
   width: 1px;
   height: 280px;
   display:inline-block;
+  margin-top: 12px;
 }
 
 .form-contents {
@@ -62,9 +71,11 @@ button.closeButton:hover {
 .upload-form input[type="text"], .upload-form textarea {
   background: #fff;
   border:solid 1px #8c8c8c;
-  height:30px;
-  width: 99%;
-  font-size: 16px
+  height:10px;
+  width: 92%;
+  font-size: 16px;
+  padding: 10px;
+  color:black;
 }
 
 .upload-form textarea {
@@ -73,4 +84,28 @@ button.closeButton:hover {
 
 .upload-form input[type="submit"] {
   width: 130px;
+}
+
+
+.upload-form input[type="submit"]:hover {
+  background: $light-grey;
+}
+
+.camera {
+  margin-top: 20px;
+}
+
+.uploaded-image {
+  max-width: 270px;
+  max-height: 280px;
+  border: 5px solid white;
+  box-shadow: 0px 0px 5px #888888;
+}
+
+.uploaded-image-container {
+  // width: 270px;
+  // height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

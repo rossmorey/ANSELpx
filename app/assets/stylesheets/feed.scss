@@ -9,9 +9,15 @@
   padding-top: 20px;
 }
 
+.feed-photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
 .feed-item img{
-  max-width: 100%;
-  display: block;
+  max-height: 596px;
+  max-width: 598px;
 }
 
 .feed-item {
