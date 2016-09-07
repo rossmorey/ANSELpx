@@ -5,13 +5,27 @@ class User < ActiveRecord::Base
   validates :password_digest, :username, :session_token, :first_name, :last_name, presence: true
   validates :username, :session_token, uniqueness: true
 
-  after_initialize :ensure_session_token, :ensure_view_count
+  after_initialize :ensure_session_token
 
   has_many :photos
-  
-  def ensure_view_count
-    self.views ||= 0
-  end
+
+  has_many :follows,
+  foreign_key: :follower_id,
+  class_name: :Follow,
+  primary_key: :id
+
+  has_many :followings,
+  foreign_key: :followed_id,
+  class_name: :Follow,
+  primary_key: :id
+
+  has_many :followers,
+    through: :followings,
+    source: :follower
+
+  has_many :followed,
+    through: :follows,
+    source: :followed
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
@@ -38,4 +52,27 @@ class User < ActiveRecord::Base
     user.is_password?(password) ? user : false
   end
 
+  def views
+    total_views = 0
+    self.photos.each do |photo|
+      total_views += photo.views
+    end
+    total_views
+  end
+
+  def photo_count
+    self.photos.count
+  end
+
+  def photo_samples
+    self.photos.take(5)
+  end
+
+  def follower_count
+    self.followers.count
+  end
+
+  def followed_count
+    self.followed.count
+  end
 end

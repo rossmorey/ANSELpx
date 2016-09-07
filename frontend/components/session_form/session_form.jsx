@@ -5,8 +5,9 @@ import { Link } from 'react-router';
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { username: "Username", password: "Password" };
+    this.state = { username: "", password: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGuest = this.handleGuest.bind(this);
   }
 
   handleSubmit(e) {
@@ -15,11 +16,15 @@ class SessionForm extends React.Component {
 		this.props.processForm({user});
   }
 
-   componentWillReceiveProps(newProps) {
-     if (newProps.loggedIn) {
-        hashHistory.push("/");
-     }
-   }
+  handleGuest() {
+    this.setState({username: "guest", password: "password" });
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.loggedIn) {
+      hashHistory.push("/");
+    }
+  }
 
   update(field) {
 		return e => { this.setState({[field]: e.currentTarget.value });};
@@ -46,9 +51,10 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit} className={formType + "_form_box"}>
           <input type="text" placeholder="Username" onChange={this.update("username")}/>
             <br />
-          <input type="text" placeholder="Password" onChange={this.update("password")}/>
+          <input type="password" placeholder="Password" onChange={this.update("password")}/>
             <br />
           <input type="submit" value="Login" />
+          <button className="guest" onClick={this.handleGuest}>Guest</button>
           <Link to="/signup" >>>Sign up for an account</Link>
         </form>
       );

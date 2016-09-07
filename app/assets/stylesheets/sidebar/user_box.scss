@@ -1,0 +1,43 @@
+.user-box {
+  border: 1px solid $light-grey;
+  height: 120px;
+  box-sizing: border-box;
+  background-color: $white;
+  margin-bottom: 20px;
+}
+
+.user-box-user {
+  border-bottom: 1px solid $light-grey;
+  width: 100%;
+  padding: 10px;
+  height: 50px;
+}
+
+.user-box-username {
+  display: inline-block;
+  float: left;
+  margin-top: 6px;
+}
+
+.user-box-badge {
+  margin-right: 7px;
+  float: left;
+}
+
+.user-box li {
+  border-left: 1px solid $light-grey;
+  width: 32.9%;
+  float: left;
+  height: 60px;
+  text-align: center;
+}
+
+.user-box li:first-child {
+  border: 0;
+}
+
+.user-box-badge {
+  width: 30px;
+  border-radius: 20px;
+  display: inline-block;
+}

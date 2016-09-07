@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../navbar/navbar';
 import Feed from '../feed/feed';
+import FeedSidebar from '../sidebar/feed_sidebar';
 
 class FeedPage extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class FeedPage extends React.Component {
         <div className="max-width">
           <Feed photos={this.props.photos}
             requestPhotos={this.props.requestPhotos} />
+          <FeedSidebar currentUser={this.props.currentUser} />
         </div>
       </div>
     );

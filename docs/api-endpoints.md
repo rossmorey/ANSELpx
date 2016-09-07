@@ -30,6 +30,6 @@
 - `DELETE /api/likes/:likeId`
 
 ### Follows
-- `GET /api/photos/:id/follows`
-- `POST /api/photos/:photoId/follows`
+- `GET /api/user/:id/follows`
+- `POST /api/user/:id/follows`
 - `DELETE /api/follows/:followId`

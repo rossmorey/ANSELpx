@@ -1,4 +1,11 @@
 class Api::UsersController < ApplicationController
+
+  # This method returns a random 5 users who the current user is not following
+  def index
+    users = User.all-[current_user]
+    @users = users.shuffle.take(5)
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save

@@ -47,7 +47,7 @@ button.closeButton:hover {
 }
 
 .vertical-line {
-  border-left: 1px solid;
+  border-left: 1px solid $medium-grey;
   width: 1px;
   height: 280px;
   display:inline-block;
@@ -84,6 +84,7 @@ button.closeButton:hover {
 
 .upload-form input[type="submit"] {
   width: 130px;
+  background: $dark-grey;
 }
 
 

@@ -49,7 +49,7 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 - [x] Cloudify? integration for photo upload
 - [x] Redux cycle for photo-related components
 - [ ] Seed Photos
-- [ ] Feed styling
+- [x] Feed styling
 
 ###Phase III: Feed Sidebar & Photos (CR)UD, Single Photo View (2 days)
 

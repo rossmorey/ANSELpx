@@ -1,6 +1,6 @@
 class Api::PhotosController < ApplicationController
   def index
-    @photos = Photo.all.reverse
+    @photos = Photo.all.shuffle
   end
 
   def create
