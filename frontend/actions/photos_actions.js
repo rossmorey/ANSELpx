@@ -1,17 +1,18 @@
 export const PhotosConstants = {
   REQUEST_PHOTOS: "REQUEST_PHOTOS",
+  REQUEST_USER_PHOTOS: "REQUEST_USER_PHOTOS",
   RECEIVE_PHOTOS: "RECEIVE_PHOTOS",
   RECEIVE_PHOTO: "RECEIVE_PHOTO",
   CREATE_PHOTO: "CREATE_PHOTO"
 };
 
-export const createPhoto = (photo) => ({
-  type: PhotosConstants.CREATE_PHOTO,
-  photo
-});
-
 export const requestPhotos = () => ({
   type: PhotosConstants.REQUEST_PHOTOS
+});
+
+export const requestUserPhotos = (id) => ({
+  type: PhotosConstants.REQUEST_USER_PHOTOS,
+  id
 });
 
 export const receivePhotos = (photos) => ({
@@ -21,5 +22,10 @@ export const receivePhotos = (photos) => ({
 
 export const receivePhoto = (photo) => ({
   type: PhotosConstants.RECEIVE_PHOTO,
+  photo
+});
+
+export const createPhoto = (photo) => ({
+  type: PhotosConstants.CREATE_PHOTO,
   photo
 });

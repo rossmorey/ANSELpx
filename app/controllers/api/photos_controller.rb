@@ -1,6 +1,11 @@
 class Api::PhotosController < ApplicationController
   def index
-    @photos = Photo.all.shuffle
+    if params["user_id"]
+      user = User.find(params["user_id"])
+      @photos = user.photos
+    else
+      @photos = Photo.all.shuffle
+    end
   end
 
   def create

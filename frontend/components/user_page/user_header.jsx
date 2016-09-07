@@ -1,32 +1,30 @@
 import React from 'react';
 
-class UserBox extends React.Component {
+class UserHeader extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  render() {
-    let user = this.props.currentUser;
+  componentDidMount() {
+    this.props.requestTargetUser(this.props.targetUserId);
+  }
 
-    if (this.props.currentUser === null) {
-      user = {
-        user_img_url: "",
-        username: "",
-        photo_count: "",
-        views: "",
-        follower: ""
-      };
+  render() {
+    let user = this.props.targetUser;
+
+    if (this.props.targetUser === undefined) {
+      user = []
     }
 
     return (
-      <div className="user-box">
-        <div className="user-box-user">
+      <div className="user-header">
+        <div className="user-header-user">
           <img
-            className="user-box-badge"
+            className="user-header-badge"
             src={user.user_img_url}
           />
           <div
-            className="user-box-username"
+            className="user-header-username"
           >{user.username}</div>
         </div>
         <ul>
@@ -39,4 +37,4 @@ class UserBox extends React.Component {
   }
 }
 
-export default UserBox;
+export default UserHeader;

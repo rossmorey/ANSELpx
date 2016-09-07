@@ -6,20 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Follow.create(
-  follower_id: 1,
-  followed_id: 2
-)
 
-Follow.create(
-  follower_id: 1,
-  followed_id: 3
-)
 
-Follow.create(
-  follower_id: 1,
-  followed_id: 4
-)
+(1..11).to_a.each do |n|
+  (1..11).to_a.sample((3..9).to_a.sample).each do |j|
+    Follow.create(follower_id: n, followed_id: j)
+  end
+end
 
 User.create(
   username: "rossmorey",

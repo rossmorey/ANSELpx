@@ -9,7 +9,7 @@ class Zone extends React.Component {
     super(props);
     this.state = {
       uploadedFile: null,
-      uploadedFileCloudinaryUrl: ''
+      uploadedFileCloudinaryUrl: '',
     };
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
@@ -31,7 +31,8 @@ class Zone extends React.Component {
 
       if (response.body.secure_url !== '') {
         this.setState({
-          uploadedFileCloudinaryUrl: response.body.secure_url
+          uploadedFileCloudinaryUrl: response.body.secure_url,
+
         });
         this.props.setPhotoUrl(response.body.secure_url);
       }

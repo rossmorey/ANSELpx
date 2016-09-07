@@ -1,5 +1,5 @@
 import React from 'react';
-import UserBox from './user_box';
+import UserBox from '../user_box';
 import FollowBoxContainer from './follow_box_container';
 
 class FeedSidebar extends React.Component {
@@ -10,7 +10,7 @@ class FeedSidebar extends React.Component {
   render() {
     return (
       <div className="feed-sidebar">
-        <UserBox currentUser={this.props.currentUser} />
+        <UserBox targetUser={this.props.currentUser} />
         <FollowBoxContainer />
       </div>
     );
