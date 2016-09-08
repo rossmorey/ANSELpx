@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
   requestPhotos: () => dispatch(requestPhotos()),
-  createPhoto: (photo) => dispatch(createPhoto(photo))
+  createPhoto: (photo, origin) => dispatch(createPhoto(photo, origin))
 });
 
 export default connect(

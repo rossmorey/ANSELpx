@@ -29,14 +29,15 @@
   background-position: 50% 50%;
 }
 
-.login_form_container a {
+.login_form_container a,
+.signup_form_container a {
   text-decoration: none;
   color:inherit;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 100;
 }
 
-input[type="text"], textarea {
+input[type="text"], input[type="password"], textarea {
   border: none;
   background-color: rgba(0, 0, 0, .2);
   color: white;
@@ -50,6 +51,10 @@ input[type="text"], textarea {
 }
 
 input[type="submit"] {
+  margin-right: 30px;
+}
+
+input[type="submit"], button.guest {
   width: 152px;
   height: 40px;
   border-radius: 5px;
@@ -64,7 +69,9 @@ input[type="submit"] {
   font-weight: 200;
 }
 
-.login_form_container input[type="submit"]:hover {
+.login_form_container input[type="submit"]:hover,
+.signup_form_container input[type="submit"]:hover,
+button.guest:hover {
   box-shadow: 0px 0px 0px 1px;
 }
 

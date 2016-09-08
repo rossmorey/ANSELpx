@@ -92,6 +92,7 @@ class Navbar extends React.Component {
                   createPhoto={this.props.createPhoto}
                   onModalClose={this.onModalClose}
                   currentUser={this.props.currentUser}
+                  origin={this.props.origin}
                 />
             </Modal>
           </div>

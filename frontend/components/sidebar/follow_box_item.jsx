@@ -9,7 +9,7 @@ class FollowBoxItem extends React.Component {
   }
 
   handleUserFollowClick(e) {
-    hashHistory.push('/user/'+this.props.user.id)
+    hashHistory.push('/user/'+this.props.user.id);
   }
 
   render() {
@@ -22,13 +22,19 @@ class FollowBoxItem extends React.Component {
     } = this.props.user;
 
     let images = samples.map((image) => (
-      <li key={image.id} className="follow-item-image"><img src={image.photo_img_url} /></li>
+      <li
+        key={image.id}
+        className="follow-item-image"
+      >
+        <img src={image.mini_square_url} />
+     </li>
     ));
 
     return(
       <div className="follow-box-item">
         <div className="follow-item-upper">
-          <div className="follow-info-container" onClick={this.handleUserFollowClick}>
+          <div className="follow-info-container"
+            onClick={this.handleUserFollowClick}>
             <img className="follow-item-badge" src={user_img_url} />
             <div className="follow-item-meta">
               <span className="username">{username}</span><br />

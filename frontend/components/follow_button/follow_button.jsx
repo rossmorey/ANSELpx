@@ -29,7 +29,7 @@ class FollowButton extends React.Component {
   componentDidMount() {
     this.setState({loading: false, followed: false});
 
-    if (this.props.currentUser) {
+    if (this.props.currentUser.followed && this.props.currentUser.followed.length != 0) {
       this.props.currentUser.followed.forEach((followed) => {
         if (followed.id === this.props.buttonUserId) {
           this.setState({followed: true});

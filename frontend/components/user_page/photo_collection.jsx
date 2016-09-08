@@ -28,7 +28,7 @@ class PhotoCollection extends React.Component {
 
     return(
       <div className="images-container">
-        <JustifiedLayout className="justified-layout" containerPadding={50}>
+        <JustifiedLayout className="justified-layout" containerWidth={900}>
           {photos}
         </JustifiedLayout>
       </div>

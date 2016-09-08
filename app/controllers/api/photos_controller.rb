@@ -7,7 +7,7 @@ class Api::PhotosController < ApplicationController
       plus_one_view(user.photos)
       @photos = user.photos
     else
-      @photos = Photo.all.shuffle
+      @photos = Photo.all.shuffle.take(20)
       plus_one_view(@photos)
     end
   end
@@ -28,7 +28,9 @@ class Api::PhotosController < ApplicationController
       :user_id,
       :photo_img_url,
       :title,
-      :description
+      :description,
+      :width,
+      :height
     )
   end
 end

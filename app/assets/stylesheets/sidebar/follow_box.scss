@@ -5,9 +5,10 @@
 }
 
 .follow-box-title {
-  font-weight: bold;
-  color: $medium-grey;
+  font-weight: 200;
+  color: #c1c1c1;
   margin-bottom: 10px;
+  font-size: 18px;
 }
 
 img.follow-item-badge {
@@ -79,6 +80,9 @@ span.photo-count {
 
 .follow-item-lower {
   height: 40px;
-  border: 1px solid #e0e0e0;
+  margin-bottom: 25px;
+}
+
+.follow-item-upper {
   margin-bottom: 10px;
 }

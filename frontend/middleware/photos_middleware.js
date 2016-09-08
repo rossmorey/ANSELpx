@@ -25,7 +25,9 @@ export default ({getState, dispatch}) => next => action => {
       fetchUserPhotos(action.id, successCallback, errorCallback);
       return next(action);
     case PhotosConstants.CREATE_PHOTO:
-      successCallback = photo => dispatch(receivePhoto(photo));
+      successCallback = action.updatePhotoState ?
+        photo => dispatch(receivePhoto(photo)) :
+        () => {};
       sendPhoto({photo: action.photo}, successCallback, errorCallback);
       return next(action);
     default:

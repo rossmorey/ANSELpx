@@ -1,6 +1,7 @@
 import React from 'react';
 import Drop from './dropzone';
 import DropStyle from './drop_style';
+import { hashHistory } from 'react-router';
 
 class UploadEdit extends React.Component {
   constructor(props) {
@@ -23,7 +24,13 @@ class UploadEdit extends React.Component {
     if (this.state.photo_img_url === "") {
       alert('Please select an image to upload, or if your image is uploading, please wait for upload to complete before clicking submit.');
     } else {
-      this.props.createPhoto(this.state);
+      let updatePhotoState = true;
+
+      if (this.props.origin && parseInt(this.props.origin) !== this.props.currentUser.id) {
+        updatePhotoState = false;
+      }
+
+      this.props.createPhoto(this.state, updatePhotoState);
       this.props.onModalClose();
     }
   }

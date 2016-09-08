@@ -16,8 +16,15 @@ class SessionForm extends React.Component {
 		this.props.processForm({user});
   }
 
-  handleGuest() {
-    this.setState({username: "guest", password: "password" });
+  handleGuest(e) {
+    e.preventDefault();
+
+    let usernameFill = "guest";
+    let passwordFill = "password";
+
+    this.setState({username: "guest", password: "password"});
+
+    setTimeout(function(){this.handleSubmit(e);}.bind(this), 500);
   }
 
   componentWillReceiveProps(newProps) {
@@ -49,12 +56,23 @@ class SessionForm extends React.Component {
     if (formType === 'login') {
       form = () => (
         <form onSubmit={this.handleSubmit} className={formType + "_form_box"}>
-          <input type="text" placeholder="Username" onChange={this.update("username")}/>
+              <input type="text"
+                placeholder="Username"
+                value={this.state.username}
+                onChange={this.update("username")}
+              />
             <br />
-          <input type="password" placeholder="Password" onChange={this.update("password")}/>
+              <input
+                type="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.update("password")}
+              />
             <br />
-          <input type="submit" value="Login" />
-          <button className="guest" onClick={this.handleGuest}>Guest</button>
+          <div className="button-container">
+            <input type="submit" value="Login" />
+            <button className="guest" onClick={this.handleGuest}>Guest</button>
+          </div>
           <Link to="/signup" >>>Sign up for an account</Link>
         </form>
       );

@@ -25,7 +25,8 @@ export const receivePhoto = (photo) => ({
   photo
 });
 
-export const createPhoto = (photo) => ({
+export const createPhoto = (photo, updatePhotoState) => ({
   type: PhotosConstants.CREATE_PHOTO,
-  photo
+  photo,
+  updatePhotoState
 });
