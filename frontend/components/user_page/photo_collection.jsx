@@ -1,5 +1,6 @@
 import React from 'react';
-import Gallery from 'react-grid-gallery';
+import Gallery from 'react-photo-gallery';
+import JustifiedLayout from 'react-justified-layout';
 
 class PhotoCollection extends React.Component {
   constructor(props) {
@@ -12,61 +13,56 @@ class PhotoCollection extends React.Component {
   }
 
   render() {
+    let photos = [];
 
-    const IMAGES = [{
-        src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-        thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-        thumbnailWidth: 320,
-        thumbnailHeight: 174,
-        caption: "After Rain (Jeshu John - designerspics.com)"
-},
-{
-        src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-        thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-        thumbnailWidth: 320,
-        thumbnailHeight: 212,
-        caption: "Boats (Jeshu John - designerspics.com)"
-},{
-    src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-    thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-    thumbnailWidth: 320,
-    thumbnailHeight: 174,
-    caption: "After Rain (Jeshu John - designerspics.com)"
-},
-{
-    src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-    thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-    thumbnailWidth: 320,
-    thumbnailHeight: 212,
-    caption: "Boats (Jeshu John - designerspics.com)"
-},
-
-{
-        src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-        thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-        thumbnailWidth: 320,
-        thumbnailHeight: 212
-        //look ma, no caption!
-}];
-
+    if (this.props.photos && this.props.photos.length > 0) {
+      // debugger
+      photos = this.props.photos.map((photo) => (
+          <img
+            src={photo.thumbnail_url}
+            // style={{height: 180, weight: 360}}
+            aspectRatio={photo.width/photo.height}
+          />
+      ));
+    }
 
     return(
-      <Gallery showCloseButton={true} images={IMAGES}/>
+      <div className="images-container">
+        <JustifiedLayout className="justified-layout" containerPadding={50}>
+          {photos}
+        </JustifiedLayout>
+      </div>
     );
   }
 }
 
+
+//   render() {
+//     let photos = [];
+//
+//     if (this.props.photos) {
+//       photos = this.props.photos.map((photo) => ({
+//         src: photo.photo_img_url,
+//         width: photo.width/2,
+//         height: photo.height/2,
+//         aspectRatio: photo.width / photo.height
+//       }));
+//     }
+//
+//     return(
+//       <div className="images-container">
+//         <Gallery photos={photos} disableLightbox={true} />
+//       </div>
+//     );
+//   }
+// }
+
+
+
 export default PhotoCollection;
 
-    // const IMAGES = this.props.photos.map((photo) => (
-    //   {
-    //     src: photo.photo_img_url,
-    //     thumbnail: photo.photo_img_url
-    //   }
-    // ));
-    //
-    // debugger
 
+// <Gallery showCloseButton={true} images={IMAGES}/>
 
 
 // render(
@@ -74,22 +70,9 @@ export default PhotoCollection;
 //         document.getElementById('example-0')
 // );
 
-
-
-
-
-// <div className="images-container">
-//   {photos}
-// </div>
-
-
-
-
-
-// let photos = [];
-//
-// if (this.props.photos) {
-//   photos = this.props.photos.map((photo) => (
-//     <img src={photo.photo_img_url} />
-//   ));
-// }
+// const photos = this.props.photos.map((photo) => (
+//   {
+//     src: photo.photo_img_url,
+//     thumbnail: photo.photo_img_url
+//   }
+// ));

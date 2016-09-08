@@ -1,0 +1,32 @@
+img.user-header-badge {
+  border-radius: 50px;
+  width: 90px;
+  margin-top: 30px;
+}
+
+.user-header-username {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.user-header ul {
+  border: 1px solid $medium-grey;
+  width: 300px;
+  display: flex;
+}
+
+.user-header li {text-align: center;border-left: 1px solid $medium-grey;padding: 10px 20px;width: 33.33%;}
+
+.user-header li:first-child {
+  border: 0;
+}
+
+.user-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.images-container div {
+  right: 50px;
+}

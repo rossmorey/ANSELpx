@@ -10,6 +10,8 @@ class Zone extends React.Component {
     this.state = {
       uploadedFile: null,
       uploadedFileCloudinaryUrl: '',
+      width: '',
+      height: ''
     };
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
@@ -32,9 +34,14 @@ class Zone extends React.Component {
       if (response.body.secure_url !== '') {
         this.setState({
           uploadedFileCloudinaryUrl: response.body.secure_url,
-
+          width: response.body.width,
+          height: response.body.height
         });
-        this.props.setPhotoUrl(response.body.secure_url);
+        this.props.setParentProps(
+          response.body.secure_url,
+          response.body.width,
+          response.body.height
+        );
       }
     });
   }

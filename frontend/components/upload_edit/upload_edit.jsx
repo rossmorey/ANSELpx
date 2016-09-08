@@ -9,11 +9,13 @@ class UploadEdit extends React.Component {
       title: "",
       description: "",
       photo_img_url: "",
+      width: "",
+      height: "",
       user_id: this.props.currentUser.id
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.setPhotoUrl = this.setPhotoUrl.bind(this);
+    this.setParentProps = this.setParentProps.bind(this);
   }
 
   handleSubmit(e) {
@@ -26,8 +28,12 @@ class UploadEdit extends React.Component {
     }
   }
 
-  setPhotoUrl(url) {
-    this.setState({photo_img_url: url});
+  setParentProps(url, photoWidth, photoHeight) {
+    this.setState({
+      photo_img_url: url,
+      width: photoWidth,
+      height: photoHeight
+    });
   }
 
   update(field) {
@@ -40,7 +46,9 @@ class UploadEdit extends React.Component {
         <div className="drop-container">
           <Drop
             className="drop-zone"
-            setPhotoUrl={this.setPhotoUrl}
+            setParentProps={this.setParentProps}
+            setWidth={this.setWidth}
+            setHeight={this.setHeight}
             style={DropStyle}
           />
         </div>

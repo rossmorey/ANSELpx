@@ -1,6 +1,6 @@
 .user-box {
   border: 1px solid $light-grey;
-  height: 120px;
+  height: 111px;
   box-sizing: border-box;
   background-color: $white;
   margin-bottom: 20px;
@@ -30,6 +30,7 @@
   float: left;
   height: 60px;
   text-align: center;
+  padding: 10px;
 }
 
 .user-box li:first-child {

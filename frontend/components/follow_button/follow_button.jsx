@@ -29,21 +29,24 @@ class FollowButton extends React.Component {
   componentDidMount() {
     this.setState({loading: false, followed: false});
 
-    this.props.currentUser.followed.forEach((followed) => {
-      if (followed.id === this.props.buttonUserId) {
-        this.setState({followed: true});
-      }
-    });
+    if (this.props.currentUser) {
+      this.props.currentUser.followed.forEach((followed) => {
+        if (followed.id === this.props.buttonUserId) {
+          this.setState({followed: true});
+        }
+      });
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({loading: false, followed: false});
-
-    nextProps.currentUser.followed.forEach((followed) => {
-      if (followed.id === this.props.buttonUserId) {
-        this.setState({followed: true});
-      }
-    });
+    if (nextProps.currentUser) {
+      nextProps.currentUser.followed.forEach((followed) => {
+        if (followed.id === this.props.buttonUserId) {
+          this.setState({followed: true});
+        }
+      });
+    }
   }
 
   render() {
@@ -53,7 +56,7 @@ class FollowButton extends React.Component {
     } else if (this.state.followed) {
       button = () => (<div className="button unfollow">Unfollow</div>);
     } else {
-      button = () => (<div className="button unfollow">Follow</div>);
+      button = () => (<div className="button follow">Follow</div>);
     }
 
     return (

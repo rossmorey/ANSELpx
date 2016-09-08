@@ -1,10 +1,14 @@
 class Api::PhotosController < ApplicationController
+  include Api::PhotosHelper
+
   def index
     if params["user_id"]
       user = User.find(params["user_id"])
+      plus_one_view(user.photos)
       @photos = user.photos
     else
       @photos = Photo.all.shuffle
+      plus_one_view(@photos)
     end
   end
 
@@ -24,9 +28,7 @@ class Api::PhotosController < ApplicationController
       :user_id,
       :photo_img_url,
       :title,
-      :description,
-      :lat,
-      :lng
+      :description
     )
   end
 end

@@ -1,8 +1,14 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 class FeedItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleUserMetaClick = this.handleUserMetaClick.bind(this);
+  }
+
+  handleUserMetaClick(e) {
+    hashHistory.push("user/"+this.props.details.user.id);
   }
 
   render() {
@@ -15,7 +21,7 @@ class FeedItem extends React.Component {
             <img src={photo_img_url} />
           </div>
           <div className="feed-item-meta">
-            <div className="user-info clear">
+            <div onClick={this.handleUserMetaClick} className="user-info clear">
               <img className="user-badge-small" src={user_img_url} />
               <div className="user-name">{username}</div>
             </div>

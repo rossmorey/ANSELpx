@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-  validates :user_id, :photo_img_url, null:false
+  validates :user_id, :photo_img_url, presence: true
 
   after_initialize :ensure_views
 

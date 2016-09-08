@@ -40,7 +40,24 @@ button.upload:hover {
   cursor: pointer;
 }
 
-button.upload:focus {outline:0;}
+button {outline:0;}
+
+button.logout {
+  margin-top: 6px;
+height: 30px;
+  background: $white;
+  background-image: url(http://res.cloudinary.com/dhorsi7vf/image/upload/v1473345871/logout-dark_puglfo.png);
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 60px;
+  border: none;
+}
+
+button.logout:hover {
+  background-image: url(http://res.cloudinary.com/dhorsi7vf/image/upload/v1473345180/logout-light_mbyg9b.png);
+  cursor: pointer;
+}
 
 .user-name {
   margin-top:5px;

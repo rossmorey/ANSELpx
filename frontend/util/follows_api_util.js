@@ -1,4 +1,5 @@
 export const sendNewFollow = function (follow, success, error) {
+
     $.ajax({
       method: 'POST',
       url: 'api/follows',

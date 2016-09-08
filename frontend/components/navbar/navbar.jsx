@@ -2,17 +2,19 @@ import React from 'react';
 import Modal from 'react-modal';
 import ModalStyle from './modal_style';
 import UploadEdit from '../upload_edit/upload_edit';
+import { hashHistory } from 'react-router';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { showDropdown: false, modalOpen: false };
-    this.handleUserClick = this.handleUserClick.bind(this);
+    this.handleCurrentUserClick = this.handleCurrentUserClick.bind(this);
     this.handleUploadClick = this.handleUploadClick.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
     this.handleModalClick = this.handleModalClick.bind(this);
     this.onModalClose = this.onModalClose.bind(this);
     this.onModalOpen = this.onModalOpen.bind(this);
+    this.handleLogoClick = this.handleLogoClick.bind(this);
   }
 
   handleModalClick(e) {
@@ -28,12 +30,7 @@ class Navbar extends React.Component {
     ModalStyle.content.opacity = 100;
   }
 
-  handleUserClick(e) {
-    console.log('clicked user dropbown');
-  }
-
-  handleLogoutClick(e) {
-    e.preventDefault();
+  handleLogoutClick() {
     this.props.logout();
   }
 
@@ -44,6 +41,14 @@ class Navbar extends React.Component {
       window.cloudinary_options,
       success
     );
+  }
+
+  handleLogoClick(e) {
+    hashHistory.push("/");
+  }
+
+  handleCurrentUserClick(e) {
+    hashHistory.push("/user/"+this.props.currentUser.id);
   }
 
   render() {
@@ -60,9 +65,10 @@ class Navbar extends React.Component {
       <div className="navbar">
         <div className="max-width">
           <img className="logo"
+            onClick={this.handleLogoClick}
             src="http://res.cloudinary.com/dhorsi7vf/image/upload/v1473028116/logo-dark_wbwo2u.png" />
           <div className="left-nav-container">
-            <div className="user-display" onClick={this.handleUserClick}>
+            <div className="user-display" onClick={this.handleCurrentUserClick}>
               <img className="user-badge" src={userImgUrl} />
               <div className="user-name">
                 <span>{username}</span>
@@ -71,7 +77,7 @@ class Navbar extends React.Component {
             <button className="upload"
               onClick={this.handleModalClick}><span>Upload</span></button>
             <button className="logout"
-               onClick={this.handleLogoutClick}>Logout</button>
+               onClick={this.handleLogoutClick}><span>Logout</span></button>
 
             <Modal
               isOpen={this.state.modalOpen}
@@ -87,7 +93,6 @@ class Navbar extends React.Component {
                   onModalClose={this.onModalClose}
                   currentUser={this.props.currentUser}
                 />
-
             </Modal>
           </div>
         </div>
@@ -97,12 +102,3 @@ class Navbar extends React.Component {
 }
 
 export default Navbar;
-
-
-// <div className="user-dropdown">
-//   <ul>
-//     <li>Visit Your Profile</li>
-//     <li>Edit Your Profile</li>
-//     <li onClick={this.handleLogoutClick}>Logout</li>
-//   </ul>
-// </div>

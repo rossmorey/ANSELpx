@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
     )
     if @user
       login(@user)
-      render 'api/users/show'
+      render 'api/users/show_full'
     else
       render json: @user.errors.full_messages, status: 422
     end

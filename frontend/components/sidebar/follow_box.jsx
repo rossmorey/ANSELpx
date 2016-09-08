@@ -20,7 +20,7 @@ class FollowBox extends React.Component {
     }
 
     return(
-      <div>
+      <div className="follow-box">
         <div className="follow-box-title">
           Who To Follow
         </div>

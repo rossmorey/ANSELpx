@@ -1,6 +1,17 @@
-img.follow-item-badge {}
+.follow-box {
+  background: white;
+  border: 1px solid $light-grey;
+  padding: 10px;
+}
+
+.follow-box-title {
+  font-weight: bold;
+  color: $medium-grey;
+  margin-bottom: 10px;
+}
 
 img.follow-item-badge {
+  margin-right: 10px;
   border-radius: 20px;
   width: 30px;
   float: left;
@@ -22,4 +33,52 @@ li.follow-item-image img {
 ul.follow-item-images {
   display: flex;
   justify-content: space-around;
+}
+
+.follow-item-meta {
+  display: inline-block;
+}
+
+.follow-info-container {
+  display: inline-block;
+}
+
+.ButtonContainer {
+  float: right;
+}
+
+.follow-item-upper .button {
+  border: 1px solid $medium-grey;
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: $medium-grey;
+}
+
+.button.unfollow:hover {
+  border: 1px solid red;
+  color: red;
+}
+
+.button.follow:hover {
+  border: 1px solid #57ec57;
+  color: #57ec57;
+}
+
+
+span.username {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: -15px;
+}
+
+span.photo-count {
+  font-size: 12px;
+  color: $light-grey;
+}
+
+.follow-item-lower {
+  height: 40px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 10px;
 }
