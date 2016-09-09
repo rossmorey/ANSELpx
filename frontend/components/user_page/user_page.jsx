@@ -16,6 +16,9 @@ class UserPage extends React.Component {
           logout={this.props.logout}
           createPhoto={this.props.createPhoto}
           origin={this.props.params.id}
+          requestUserPhotos={this.props.requestUserPhotos}
+          requestTargetUser={this.props.requestTargetUser}
+          targetUserId={this.props.routeParams.id}
         />
         <div className="max-width">
           <UserHeader

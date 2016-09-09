@@ -1,5 +1,5 @@
 import { applyMiddleware } from 'redux';
-import createLogger from 'redux-logger';
+// import createLogger from 'redux-logger';
 import SessionMiddleware from '../middleware/session_middleware';
 import PhotosMiddleware from '../middleware/photos_middleware';
 import NewFollowersMiddleware from '../middleware/new_followers_middleware';
@@ -12,7 +12,7 @@ const RootMiddleware = applyMiddleware(
   NewFollowersMiddleware,
   FollowsMiddleware,
   UsersMiddleware,
-  createLogger()
+  // createLogger()
 );
 
 export default RootMiddleware;

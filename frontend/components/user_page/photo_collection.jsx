@@ -16,12 +16,11 @@ class PhotoCollection extends React.Component {
     let photos = [];
 
     if (this.props.photos && this.props.photos.length > 0) {
-      // debugger
       photos = this.props.photos.map((photo) => (
           <img
             src={photo.thumbnail_url}
-            // style={{height: 180, weight: 360}}
             aspectRatio={photo.width/photo.height}
+            key={photo.id}
           />
       ));
     }

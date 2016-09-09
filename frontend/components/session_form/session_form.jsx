@@ -17,7 +17,7 @@ class SessionForm extends React.Component {
   }
 
   handleGuest(e) {
-    e.preventDefault();
+    e.persist();
 
     let usernameFill = "guest";
     let passwordFill = "password";

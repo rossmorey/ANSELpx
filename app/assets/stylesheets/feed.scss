@@ -29,6 +29,11 @@
   padding: 10px;
 }
 
+.user-info:hover {
+  background:$light-grey;
+  cursor:pointer;
+}
+
 .user-badge-small {
   border-radius: 100px;
   margin-right:5px;
@@ -59,4 +64,9 @@
 
 .feed-item-description {
     font-size: 12px;
+}
+
+.user-box-user:hover {
+  background: $light-grey;
+  cursor:pointer;
 }

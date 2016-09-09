@@ -12,6 +12,10 @@ img.logo {
     margin-top: 3px;
 }
 
+img.logo:hover {
+  cursor:pointer;
+}
+
 img.user-badge {
     width: 35px;
     border-radius: 100px;
@@ -67,6 +71,11 @@ button.logout:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.user-display:hover {
+  cursor: pointer;
+  opacity: .5;
 }
 
 .left-nav-container {

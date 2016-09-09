@@ -8,13 +8,12 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { showDropdown: false, modalOpen: false };
-    this.handleCurrentUserClick = this.handleCurrentUserClick.bind(this);
-    this.handleUploadClick = this.handleUploadClick.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
     this.handleModalClick = this.handleModalClick.bind(this);
     this.onModalClose = this.onModalClose.bind(this);
     this.onModalOpen = this.onModalOpen.bind(this);
     this.handleLogoClick = this.handleLogoClick.bind(this);
+    this.handleCurrentUserClick = this.handleCurrentUserClick.bind(this);
   }
 
   handleModalClick(e) {
@@ -34,20 +33,13 @@ class Navbar extends React.Component {
     this.props.logout();
   }
 
-  handleUploadClick(e) {
-    e.preventDefault();
-    let success = (fail, data) => console.log(data);
-    window.cloudinary.openUploadWidget(
-      window.cloudinary_options,
-      success
-    );
-  }
-
   handleLogoClick(e) {
     hashHistory.push("/");
   }
 
   handleCurrentUserClick(e) {
+    this.props.requestUserPhotos(this.props.currentUser.id);
+    this.props.requestTargetUser(this.props.currentUser.id);
     hashHistory.push("/user/"+this.props.currentUser.id);
   }
 

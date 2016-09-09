@@ -44,6 +44,11 @@ ul.follow-item-images {
   display: inline-block;
 }
 
+.follow-info-container:hover {
+  opacity: .5;
+  cursor: pointer;
+}
+
 .ButtonContainer {
   float: right;
 }
@@ -59,11 +64,13 @@ ul.follow-item-images {
 .button.unfollow:hover {
   border: 1px solid red;
   color: red;
+  cursor: pointer;
 }
 
 .button.follow:hover {
   border: 1px solid #57ec57;
   color: #57ec57;
+  cursor: pointer;
 }
 
 
