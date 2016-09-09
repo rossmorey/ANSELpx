@@ -2,6 +2,10 @@ User.destroy_all
 Photo.destroy_all
 Follow.destroy_all
 
+ActiveRecord::Base.connection.tables.each do |t|
+  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end
+
 (1..11).to_a.each do |n|
   (1..11).to_a.sample((3..9).to_a.sample).each do |j|
     Follow.create(follower_id: n, followed_id: j)
