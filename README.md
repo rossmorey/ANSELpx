@@ -2,7 +2,7 @@
 
 [ANSELpx live][heroku]
 
-[heroku]: http://www.anselpx.com.com
+[heroku]: http://www.anselpx.com
 
 ![alt text](https://github.com/rossmorey/ANSELpx/blob/master/docs/wireframes/Login%20Design.png "Login Page Mock-up")
 

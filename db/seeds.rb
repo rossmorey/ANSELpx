@@ -1,5 +1,6 @@
-# w_50,h_50,c_fill,g_east
-
+User.destroy_all
+Photo.destroy_all
+Follow.destroy_all
 
 (1..11).to_a.each do |n|
   (1..11).to_a.sample((3..9).to_a.sample).each do |j|
