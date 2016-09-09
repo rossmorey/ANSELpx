@@ -1,14 +1,26 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
+import Lightbox from 'react-images';
 
 class FeedItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { lightboxIsOpen: false };
     this.handleUserMetaClick = this.handleUserMetaClick.bind(this);
+    this.handleLightboxClick = this.handleLightboxClick.bind(this);
+    this.closeLightbox = this.closeLightbox.bind(this);
   }
 
   handleUserMetaClick(e) {
     hashHistory.push("user/"+this.props.details.user.id);
+  }
+
+  handleLightboxClick() {
+    this.setState({lightboxIsOpen: true});
+  }
+
+  closeLightbox() {
+    this.setState({lightboxIsOpen: false});
   }
 
   render() {
@@ -18,7 +30,17 @@ class FeedItem extends React.Component {
     return (
         <div className="feed-item">
           <div className="feed-photo-container">
-            <img src={photo_img_url} />
+            <img onClick={this.handleLightboxClick} src={photo_img_url} />
+            <Lightbox
+              images={[{src: photo_img_url}]}
+              isOpen={this.state.lightboxIsOpen}
+              onClickPrev={this.gotoPrevious}
+              onClickNext={this.gotoNext}
+              onClose={this.closeLightbox}
+              backdropClosesModal={true}
+              showCloseButton={true}
+              showImageCount={false}
+            />
           </div>
           <div className="feed-item-meta">
             <div onClick={this.handleUserMetaClick} className="user-info clear">
@@ -30,6 +52,7 @@ class FeedItem extends React.Component {
               <span className="feed-item-description">{description}</span>
             </div>
           </div>
+
         </div>
     );
   }

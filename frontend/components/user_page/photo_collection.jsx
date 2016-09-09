@@ -17,11 +17,11 @@ class PhotoCollection extends React.Component {
 
     if (this.props.photos && this.props.photos.length > 0) {
       photos = this.props.photos.map((photo) => (
-          <img
-            src={photo.thumbnail_url}
-            aspectRatio={photo.width/photo.height}
-            key={photo.id}
-          />
+        <img
+          src={photo.thumbnail_url}
+          aspectRatio={photo.width/photo.height}
+          key={photo.id}
+        />
       ));
     }
 
@@ -35,43 +35,4 @@ class PhotoCollection extends React.Component {
   }
 }
 
-
-//   render() {
-//     let photos = [];
-//
-//     if (this.props.photos) {
-//       photos = this.props.photos.map((photo) => ({
-//         src: photo.photo_img_url,
-//         width: photo.width/2,
-//         height: photo.height/2,
-//         aspectRatio: photo.width / photo.height
-//       }));
-//     }
-//
-//     return(
-//       <div className="images-container">
-//         <Gallery photos={photos} disableLightbox={true} />
-//       </div>
-//     );
-//   }
-// }
-
-
-
 export default PhotoCollection;
-
-
-// <Gallery showCloseButton={true} images={IMAGES}/>
-
-
-// render(
-//         ,
-//         document.getElementById('example-0')
-// );
-
-// const photos = this.props.photos.map((photo) => (
-//   {
-//     src: photo.photo_img_url,
-//     thumbnail: photo.photo_img_url
-//   }
-// ));

@@ -1,6 +1,7 @@
 import React from 'react';
 import FollowButtonContainer from '../follow_button/follow_button_container';
 import { hashHistory } from 'react-router';
+import FollowBoxItemImage from './follow_box_item_image';
 
 class FollowBoxItem extends React.Component {
   constructor(props) {
@@ -26,7 +27,10 @@ class FollowBoxItem extends React.Component {
         key={image.id}
         className="follow-item-image"
       >
-        <img src={image.mini_square_url} />
+        < FollowBoxItemImage
+          details={image}
+          key={image.id}
+        />
      </li>
     ));
 

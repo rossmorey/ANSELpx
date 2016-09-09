@@ -14,6 +14,8 @@ class FeedPage extends React.Component {
         <Navbar
           currentUser={this.props.currentUser}
           logout={this.props.logout}
+          requestUserPhotos={this.props.requestUserPhotos}
+          requestTargetUser={this.props.requestTargetUser}
           createPhoto={this.props.createPhoto}
         />
         <div className="max-width">

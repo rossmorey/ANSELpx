@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :password_digest, :username, :session_token, :first_name, :last_name, presence: true
   validates :username, :session_token, uniqueness: true
 
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :ensure_user_photo
 
   has_many :photos
 
@@ -74,5 +74,10 @@ class User < ActiveRecord::Base
 
   def followed_count
     self.followed.count
+  end
+
+  def ensure_user_photo
+    self.user_img_url ||= "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473355795/guestuser_gdidkh.png"
+    self.save!
   end
 end

@@ -7,7 +7,7 @@ import { hashHistory } from 'react-router';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showDropdown: false, modalOpen: false };
+    this.state = { modalOpen: false };
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
     this.handleModalClick = this.handleModalClick.bind(this);
     this.onModalClose = this.onModalClose.bind(this);

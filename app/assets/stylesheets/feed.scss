@@ -14,6 +14,10 @@
   align-items: baseline;
 }
 
+.feed-photo-container img:hover {
+  opacity: .98;
+}
+
 .feed-item img{
   max-height: 596px;
   max-width: 598px;
@@ -69,4 +73,11 @@
 .user-box-user:hover {
   background: $light-grey;
   cursor:pointer;
+}
+
+button.close_1pts9jo {
+}
+
+img {
+  cursor: pointer;
 }
