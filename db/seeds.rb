@@ -977,16 +977,6 @@ Photo.create(
   width: 750
 )
 
-Photo.create(
-  title: "One of my favorites...",
-  photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082958/113_mecci4.jpg",
-  thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082958/113_mecci4.jpg",
-  mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082958/113_mecci4.jpg",
-  user_id: 6,
-  height: 600,
-  width: 751
-)
-
 
 Photo.create(
   title: "Dead Tree",
@@ -998,9 +988,6 @@ Photo.create(
   height: 600,
   width: 748
 )
-
-
-
 
 Photo.create(
   title: "Interchange",
