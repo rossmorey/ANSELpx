@@ -11,9 +11,9 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 - [x] New account creation, login, and guest/demo login
 - [x] Photo posting
 - [x] Follow/unfollow of users
-- [] Homepage Feed
-- [] Profile page
-- [] Production [README](https://github.com/rossmorey/ANSELpx/blob/master/README.md)
+- [x] Homepage Feed
+- [x] Profile page
+- [x] Production [README](https://github.com/rossmorey/ANSELpx/blob/master/README.md)
 
 ##Design Docs
 - [View Wireframes](https://github.com/rossmorey/ANSELpx/blob/master/docs/wireframes/)
@@ -35,7 +35,7 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 - [x] API Util (to interact with API)
 - [x] User signup/signin components
 - [x] Redux cycle for frontend authentication
-- [ ] Seed Users
+- [x] Seed Users
 - [x] Landing Page Styling
 
 ###Phase II: SiteHeader, Photos CR(UD), Feed (2 days)
@@ -48,7 +48,7 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 - [x] Frontent components - FeedContainer, FeedItem, SinglePhotoContainer, (PhotoContainer, PhotoItem)
 - [x] Cloudify? integration for photo upload
 - [x] Redux cycle for photo-related components
-- [ ] Seed Photos
+- [x] Seed Photos
 - [x] Feed styling
 
 ###Phase III: Feed Sidebar & Photos (CR)UD, Single Photo View (2 days)
@@ -57,30 +57,30 @@ ANSELpx is a web application inspired by 500px.  It features stunning landscape 
 
 - [ ] GoogleMaps integration, for SinglePhotoContainer
 - [ ] Frontent components - Sidebar, UserBox, FollowBox, FollowBoxItem
-- [ ] Seed Photos Metadata
-- [ ] Sidebar styling
+- [x] Seed Photos Metadata
+- [x] Sidebar styling
 
 ###Phase IV: User Page (2 days)
 
 ####Objective: User page is up and functional, including page resizing, and image reorganization using Justified-Gallery.
 
-- [ ] API Util - request/receive user
-- [ ] TargetUser JBuilder View
-- [ ] Frontend components - User Feature, (PhotoContainer, PhotoItem)
-- [ ] Redux cycle for photo-related components
-- [ ] Justified-Gallery jQuery integration for photo display (http://miromannino.github.io/Justified-Gallery/).
+- [x] API Util - request/receive user
+- [x] TargetUser JBuilder View
+- [x] Frontend components - User Feature, (PhotoContainer, PhotoItem)
+- [x] Redux cycle for photo-related components
+- [x] Justified-Gallery jQuery integration for photo display (http://miromannino.github.io/Justified-Gallery/).
 
 ###Phase IV: Follows (1 days)
 
 ####Objective: Users can follow and unfollow each other.  On click, followers/following displays a pop-up list of users.
 
-- [ ] Follows model/migration
-- [ ] Include followers/followed in user JSON view
-- [ ] Seed follows
-- [ ] API Util methods for follows
-- [ ] Frontend redux cycles
+- [x] Follows model/migration
+- [x] Include followers/followed in user JSON view
+- [x] Seed follows
+- [x] API Util methods for follows
+- [x] Frontend redux cycles
 - [ ] Add pop up for followers/followed
-- [ ] Adjust styling as necessary
+- [x] Adjust styling as necessary
 
 ###Bonus Features (TBD)
 - [ ] Comments

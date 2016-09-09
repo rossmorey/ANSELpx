@@ -23,14 +23,8 @@ class FollowBoxItem extends React.Component {
     } = this.props.user;
 
     let images = samples.map((image) => (
-      <li
-        key={image.id}
-        className="follow-item-image"
-      >
-        < FollowBoxItemImage
-          details={image}
-          key={image.id}
-        />
+      <li key={image.id} className="follow-item-image">
+        <FollowBoxItemImage details={image} key={image.id}/>
      </li>
     ));
 
