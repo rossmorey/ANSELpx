@@ -4,11 +4,6 @@ import Root from './components/root';
 import configureStore from './store/store';
 import Modal from 'react-modal';
 
-var http = require("http");
-setInterval(function() {
-    http.get("http://www.anselpx.com/");
-}, 300000);
-
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
@@ -22,7 +17,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
-
-  // for testing
-  window.store = store;
 });
