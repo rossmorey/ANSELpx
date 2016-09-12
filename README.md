@@ -68,7 +68,7 @@ end
 
 By storing `width` and `height` parameters of the original image in the database, it's easy to calculate the aspect ratio of smaller versions of the image on the front end.  This becomes necessary when serving images to the user page.  
 
-The ANSELpx user page includes an ndm package based on Flickr's open-source Justified Layout.  This allows images to be dynamically re-ordered and re-sized, creating a mosaic of photographs.
+The ANSELpx user page includes an npm package based on Flickr's open-source Justified Layout.  This allows images to be dynamically re-ordered and re-sized, creating a mosaic of photographs.
 
 ![alt text](http://res.cloudinary.com/dhorsi7vf/image/upload/v1473444579/justified_gallery_wrcstt.png "Justified Layout")
 
