@@ -2,15 +2,9 @@ User.destroy_all
 Photo.destroy_all
 Follow.destroy_all
 
-ActiveRecord::Base.connection.tables.each do |t|
-  ActiveRecord::Base.connection.reset_pk_sequence!(t)
-end
-
-(1..11).to_a.each do |n|
-  (1..11).to_a.sample((3..9).to_a.sample).each do |j|
-    Follow.create(follower_id: n, followed_id: j)
-  end
-end
+# ActiveRecord::Base.connection.tables.each do |t|
+#   ActiveRecord::Base.connection.reset_pk_sequence!(t)
+# end
 
 User.create(
   username: "rossmorey",
@@ -140,13 +134,35 @@ User.create(
   user_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473355795/guestuser_gdidkh.png"
 )
 
+first_user_id = User.find_by(
+  user_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,w_233/v1472752844/picture_fo4edt.jpg"
+).id
+
+(first_user_id..first_user_id+11).to_a.each do |n|
+  (first_user_id..first_user_id+11).to_a.sample((3..9).to_a.sample).each do |j|
+    Follow.create(follower_id: n, followed_id: j)
+  end
+end
+
+# 1 first_user_id
+# 2 first_user_id+1
+# 3 first_user_id+2
+# 4 first_user_id+3
+# 5 first_user_id+4
+# 6 first_user_id+5
+# 7 first_user_id+6
+# 8 first_user_id+7
+# 9 first_user_id+8
+# 10 first_user_id+9
+# 11 first_user_id+10
+
 Photo.create(
   title: "Storm Forming Above Banner Peak",
   description: "\"I made this photograph while on the annual Sierra Club outing in Sequoia National Park, one of the most spectacular regions of the Sierra....Many speak of this image as abstract,but I was not conscious of any such definition a the time....For photographic composition I think in terms of creating configurations out of chaos.\"",
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082836/007_gdl9mh.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082836/007_gdl9mh.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082836/007_gdl9mh.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   width: 2100,
   height: 1400
 )
@@ -155,7 +171,7 @@ Photo.create( title: "Adventures in the Southwest", description: "You don't take
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082860/008_go6msf.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082860/008_go6msf.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082860/008_go6msf.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   width: 2215,
   height: 2958
 )
@@ -164,7 +180,7 @@ Photo.create( title: "Southwest Textures", description: "When words become uncle
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082874/009_bgoz5l.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082874/009_bgoz5l.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082874/009_bgoz5l.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   width: 3500,
   height: 2329
 )
@@ -173,7 +189,7 @@ Photo.create( title: "Portrait", description: "There are no rules for good photo
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082840/010_i2eomi.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082840/010_i2eomi.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082840/010_i2eomi.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   width: 1265,
   height: 888
 )
@@ -182,7 +198,7 @@ Photo.create( title: "Manzanar Fields", description: "In 1943, Ansel Adams docum
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082845/011_jxsi6g.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082845/011_jxsi6g.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082845/011_jxsi6g.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   width: 2000,
   height: 1500
 )
@@ -191,7 +207,7 @@ Photo.create( title: "Desert Mesas", description: "There are always two people i
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082841/012_cwvcd2.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082841/012_cwvcd2.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082841/012_cwvcd2.jpg",
-  user_id: 8,
+  user_id: first_user_id+7,
   width: 2000,
   height: 1131
 )
@@ -200,7 +216,7 @@ Photo.create( title: "Mt. Williamson from Manzanar", description: "\"It seldom r
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082839/013_wwgahe.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082839/013_wwgahe.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082839/013_wwgahe.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   width: 2000,
   height: 1131
 )
@@ -209,7 +225,7 @@ Photo.create( title: "Going to the Sun", description: "There is nothing worse th
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082845/014_q1f7ar.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082845/014_q1f7ar.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082845/014_q1f7ar.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   width: 3397,
   height: 2234
 )
@@ -218,7 +234,7 @@ Photo.create( title: "The Artist in Yosemite", description: "Sometimes I do get 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082844/015_usllyh.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082844/015_usllyh.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082844/015_usllyh.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   height: 1002,
   width: 1903
 )
@@ -227,7 +243,7 @@ Photo.create( title: "Glacier", description: "A good photograph is knowing where
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082856/016_xp7wwk.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082856/016_xp7wwk.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082856/016_xp7wwk.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   height: 1875,
   width: 2500
 )
@@ -236,7 +252,7 @@ Photo.create( title: "Spring Flow into Lake Tenaya", description: "Yosemite Nati
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082844/017_do83ae.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082844/017_do83ae.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082844/017_do83ae.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   height: 1113,
   width: 1440
 )
@@ -246,7 +262,7 @@ Photo.create( title: "Lake McDonald", description: "In wisdom gathered over time
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082847/018_nm9vqk.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082847/018_nm9vqk.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082847/018_nm9vqk.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   height: 1185,
   width: 1507
 )
@@ -256,7 +272,7 @@ Photo.create( title: "Moonrise", description: "Moonrise, Hernandez, New Mexico. 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082852/019_kls1mx.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082852/019_kls1mx.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082852/019_kls1mx.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   height: 2500,
   width:3360
 )
@@ -266,7 +282,7 @@ Photo.create( title: "Southwest Spires", description: "Mature and sophisticated 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082836/020_kyc0dr.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082836/020_kyc0dr.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082836/020_kyc0dr.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   height: 3000,
   width: 4000
 )
@@ -277,7 +293,7 @@ Photo.create( title: "Bubbs Creek", description: "Top-flight landscape photograp
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082853/021_lncwtk.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082853/021_lncwtk.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082853/021_lncwtk.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   height: 1440,
   width: 2560
 )
@@ -287,7 +303,7 @@ Photo.create( title: "Mirror Lake", description: "An image to sigh over. Mirror 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082900/022_nkucez.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082900/022_nkucez.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082900/022_nkucez.jpg",
-  user_id: 1,
+  user_id: first_user_id,
   height: 3050,
   width: 3825
 )
@@ -297,7 +313,7 @@ Photo.create( title: "Clark Range", description: "You don’t take a photograph,
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082852/023_v8ljio.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082852/023_v8ljio.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082852/023_v8ljio.jpg",
-  user_id: 2,
+  user_id: first_user_id+1,
   height: 784,
   width: 1120
 )
@@ -307,7 +323,7 @@ Photo.create( title: "Rural Church", description: "Stunning. An unexpected image
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082856/024_za9kiz.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082856/024_za9kiz.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082856/024_za9kiz.jpg",
-  user_id: 3,
+  user_id: first_user_id+2,
   height: 1024,
   width: 787
 )
@@ -317,7 +333,7 @@ Photo.create( title: "Inspiration from Ansel", description: "His work is nothing
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082873/025_uhzhs3.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082873/025_uhzhs3.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082873/025_uhzhs3.jpg",
-  user_id: 3,
+  user_id: first_user_id+2,
   height: 1708,
   width: 2800
 )
@@ -327,7 +343,7 @@ Photo.create( title: "Dogwoods in Spring", description: "I don’t think I’ve 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082860/026_qy3fb0.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082860/026_qy3fb0.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082860/026_qy3fb0.jpg",
-  user_id: 3,
+  user_id: first_user_id+2,
   height: 768 ,
   width: 1024
 )
@@ -337,7 +353,7 @@ Photo.create( title: "Foothills", description: "Beautiful landscape photography�
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082860/027_nzupi7.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082860/027_nzupi7.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082860/027_nzupi7.jpg",
-  user_id: 3,
+  user_id: first_user_id+2,
   height: 768,
   width: 1024
 )
@@ -347,7 +363,7 @@ Photo.create( title: "Mirror Lake Fall", description: "Ansel Adams wanted his ph
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082867/028_kbcmjc.png",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082867/028_kbcmjc.png",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082867/028_kbcmjc.png",
-  user_id: 2,
+  user_id: first_user_id+1,
   height: 872,
   width: 1100
 )
@@ -357,7 +373,7 @@ Photo.create( title: "Aspen Grove", description: "His compositions and angles ar
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082862/029_ljhezf.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082862/029_ljhezf.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082862/029_ljhezf.jpg",
-  user_id: 2,
+  user_id: first_user_id+1,
   height: 816,
   width: 1200
 )
@@ -367,7 +383,7 @@ Photo.create( title: "Glacier National Park Eastern Peaks", description: "Wonder
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082862/030_fsqwkc.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082862/030_fsqwkc.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082862/030_fsqwkc.jpg",
-  user_id: 2,
+  user_id: first_user_id+1,
   height: 1173,
   width: 1500
 )
@@ -378,7 +394,7 @@ Photo.create( title: "Manzanar Gates and Barracks", description: "Ansel Adams sa
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082864/032_nbunpt.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082864/032_nbunpt.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082864/032_nbunpt.jpg",
-  user_id: 2,
+  user_id: first_user_id+1,
   height: 360,
   width: 584
 )
@@ -388,7 +404,7 @@ Photo.create( title: "Sunrise Creek", description: "The Owens Valley, Eastern Si
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082867/035_d9itbb.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082867/035_d9itbb.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082867/035_d9itbb.jpg",
-  user_id: 2,
+  user_id: first_user_id+1,
   height: 1080,
   width: 1767
 )
@@ -398,7 +414,7 @@ Photo.create( title: "Manzanar Portrait Series Young Man", description: "Tom Kob
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082873/036_wrzaei.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082873/036_wrzaei.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082873/036_wrzaei.jpg",
-  user_id: 2,
+  user_id: first_user_id+1,
   height: 1571,
   width: 2044
 )
@@ -408,7 +424,7 @@ Photo.create( title: "Cypress Tree", description: "Technique and eye – great! 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082872/037_yccvem.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082872/037_yccvem.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082872/037_yccvem.jpg",
-  user_id: 3,
+  user_id: first_user_id+2,
   height: 1347,
   width: 900
 )
@@ -418,7 +434,7 @@ Photo.create( title: "Early Morning Fog", description: "Fantastic depth and comp
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082874/038_xtaa0v.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082874/038_xtaa0v.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082874/038_xtaa0v.jpg",
-  user_id: 3,
+  user_id: first_user_id+2,
   height: 1027,
   width: 1280
 )
@@ -428,7 +444,7 @@ Photo.create( title: "Pebble Beach", description: "Nobody should have that much 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082879/039_n6eamj.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082879/039_n6eamj.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082879/039_n6eamj.jpg",
-  user_id: 2,
+  user_id: first_user_id+1,
   height: 768,
   width: 1024
 )
@@ -438,7 +454,7 @@ Photo.create( title: "Grand Canyon", description: "Beauty can be seen in all thi
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082879/040_qtsddw.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082879/040_qtsddw.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082879/040_qtsddw.jpg",
-  user_id: 2,
+  user_id: first_user_id+1,
   height: 1391,
   width: 1737
 )
@@ -448,7 +464,7 @@ Photo.create( title: "Old Oak", description: "Negative made 1944, gelatin-silver
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082879/041_kelrcz.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082879/041_kelrcz.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082879/041_kelrcz.jpg",
-  user_id: 2,
+  user_id: first_user_id+1,
   height: 873,
   width: 1050
 )
@@ -458,7 +474,7 @@ Photo.create( title: "Teton Range", description: "It bears clear witness to that
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082884/042_dt67bp.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082884/042_dt67bp.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082884/042_dt67bp.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 2221,
   width: 3000
 )
@@ -468,7 +484,7 @@ Photo.create( title: "Close Up of Burl", description: "Adams realized that the t
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082945/043_zdlxuj.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082945/043_zdlxuj.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082945/043_zdlxuj.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 5536 ,
   width: 3720
 )
@@ -478,7 +494,7 @@ Photo.create( title: "Open Road West", description: "Adams insistence on \"strai
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082881/044_pnsjkn.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082881/044_pnsjkn.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082881/044_pnsjkn.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 854,
   width: 1280
 )
@@ -488,7 +504,7 @@ Photo.create( title: "Saguaro Cactus", description: "\"It seems so utterly naïv
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082883/045_vh1btg.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082883/045_vh1btg.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082883/045_vh1btg.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 1811,
   width: 1228
 )
@@ -498,7 +514,7 @@ Photo.create( title: "Redwoods", description: "\"It is good for me to know that 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082882/046_dkfznh.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082882/046_dkfznh.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082882/046_dkfznh.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 1270,
   width: 1598
 )
@@ -508,7 +524,7 @@ Photo.create( title: "Car and Church", description: "An unusual composition for 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082885/047_vfotyk.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082885/047_vfotyk.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082885/047_vfotyk.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 1659,
   width: 1280
 )
@@ -518,7 +534,7 @@ Photo.create( title: "Gem Lake", description: "Referring to Adams\' relationship
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082891/048_ogvulh.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082891/048_ogvulh.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082891/048_ogvulh.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 1000,
   width: 1500
 )
@@ -528,7 +544,7 @@ Photo.create( title: "Northern California After Rain", description: "If I saw so
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082899/049_mlxeb9.png",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082899/049_mlxeb9.png",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082899/049_mlxeb9.png",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 999,
   width: 1280
 )
@@ -538,7 +554,7 @@ Photo.create( title: "Farmer’s Field", description: "During the 1920s and 1930
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082892/050_lda0dq.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082892/050_lda0dq.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082892/050_lda0dq.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 1397,
   width: 2643
 )
@@ -548,7 +564,7 @@ Photo.create( title: "Bark", description: "This is an iconic Ansel Adams photogr
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082895/052_ls1tx8.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082895/052_ls1tx8.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082895/052_ls1tx8.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 3072,
   width: 4608
 )
@@ -558,7 +574,7 @@ Photo.create( title: "Yosemite Falls", description: "Such a beautiful image.",
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082893/053_vqmq6p.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082893/053_vqmq6p.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082893/053_vqmq6p.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 1200,
   width: 800
 )
@@ -568,7 +584,7 @@ Photo.create( title: "Coastal View", description: "This is an iconic Ansel Adams
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082926/054_azpvmp.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082926/054_azpvmp.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082926/054_azpvmp.jpg",
-  user_id: 3,
+  user_id: first_user_id+2,
   height: 3753,
   width: 5634
 )
@@ -578,7 +594,7 @@ Photo.create( title: "Manzanar School Girls", description: "Four Japanese-Americ
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082910/056_cssxyp.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082910/056_cssxyp.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082910/056_cssxyp.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 2096 ,
   width: 2967
 )
@@ -588,7 +604,7 @@ Photo.create( title: "California Foot Hills Gold Country", description: "If you 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082906/057_dilean.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082906/057_dilean.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082906/057_dilean.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 1129 ,
   width: 1600
 )
@@ -598,7 +614,7 @@ Photo.create( title: "Manzanar Shrine", description: "Manzanar Shrine. They crea
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082944/058_vwv0ta.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082944/058_vwv0ta.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082944/058_vwv0ta.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 2648,
   width: 3988
 )
@@ -608,7 +624,7 @@ Photo.create( title: "Rockies", description: "View across river valley toward Mt
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082912/059_l2btvu.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082912/059_l2btvu.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082912/059_l2btvu.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 1080,
   width: 1920
 )
@@ -618,7 +634,7 @@ Photo.create( title: "Manzanar Dust Storm", description: "'Americanism is a matt
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082914/060_vgez7a.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082914/060_vgez7a.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082914/060_vgez7a.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 822,
   width: 1050
 )
@@ -628,7 +644,7 @@ Photo.create( title: "Yellowstone Falls", description: "Taken at dusk dawn from 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082919/061_nn1rdf.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082919/061_nn1rdf.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082919/061_nn1rdf.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 3000,
   width: 2050
 )
@@ -638,7 +654,7 @@ Photo.create( title: "Bryce", description: "Vertical of rock formation, from bel
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082918/062_lpuej5.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082918/062_lpuej5.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082918/062_lpuej5.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 1290,
   width: 1878
 )
@@ -648,7 +664,7 @@ Photo.create( title: "Oak in Winter", description: "In 1946 a Guggenheim fellows
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082916/063_b52g1v.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082916/063_b52g1v.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082916/063_b52g1v.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 1108,
   width: 874
 )
@@ -658,7 +674,7 @@ Photo.create( title: "Mono Lake", description: "Watching the light spill over us
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082927/064_eaedpx.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082927/064_eaedpx.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082927/064_eaedpx.jpg",
-  user_id: 11,
+  user_id: first_user_id+10,
   height: 1600,
   width: 1261
 )
@@ -668,7 +684,7 @@ Photo.create( title: "Grand Canyon and Colorado", description: "Now this is one 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082951/065_qlr7em.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082951/065_qlr7em.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082951/065_qlr7em.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 2592 ,
   width: 3888
 )
@@ -678,7 +694,7 @@ Photo.create( title: "Reflection over Mono Lake", description: "Mono Lake, Easte
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082922/066_ea2web.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082922/066_ea2web.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082922/066_ea2web.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 906,
   width: 1200
 )
@@ -688,7 +704,7 @@ Photo.create( title: "Wanda Lake Summer", description: "\"With what one may call
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082925/067_rqeoav.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082925/067_rqeoav.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082925/067_rqeoav.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 1080,
   width: 1920
 )
@@ -698,7 +714,7 @@ Photo.create( title: "Thousand Island Lake", description: "There is a subtle pea
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082936/068_miwt4b.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082936/068_miwt4b.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082936/068_miwt4b.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 1365,
   width: 2048
 )
@@ -708,7 +724,7 @@ Photo.create( title: "Storm Clouds over Ritter", description: "\"Dear Mr. Adams,
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082942/069_tnrwbg.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082942/069_tnrwbg.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082942/069_tnrwbg.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 2048,
   width: 1365
 )
@@ -718,7 +734,7 @@ Photo.create( title: "Point Sur", description: "This sums up my favorite use of 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082929/070_q2q0af.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082929/070_q2q0af.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082929/070_q2q0af.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 1200,
   width: 934
 )
@@ -728,7 +744,7 @@ Photo.create( title: "Manzanar Baseball Game", description: "Baseball game, Manz
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082932/071_zu8m8p.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082932/071_zu8m8p.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082932/071_zu8m8p.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 765,
   width: 1065
 )
@@ -738,7 +754,7 @@ Photo.create( title: "Joshua Tree and Boulders", description: "Adams' career was
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082936/072_x6hqak.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082936/072_x6hqak.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082936/072_x6hqak.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 1434,
   width: 1800
 )
@@ -748,7 +764,7 @@ Photo.create( title: "Spring Sapplings", description: "San Francisco, California
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082950/074_kdm1i0.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082950/074_kdm1i0.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082950/074_kdm1i0.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 1456,
   width: 1820
 )
@@ -758,7 +774,7 @@ Photo.create( title: "Summer Herd with Donkey", description: "In 1932, Adams, Ed
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082945/075_c4yree.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082945/075_c4yree.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082945/075_c4yree.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 1992,
   width: 3000
 )
@@ -768,7 +784,7 @@ Photo.create( title: "Coastal View with Incoming Tide", description: "Northern C
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082950/076_cbib4a.png",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082950/076_cbib4a.png",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082950/076_cbib4a.png",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 877,
   width: 1166
 )
@@ -778,7 +794,7 @@ Photo.create( title: "Wilshire Blvd 1938", description: "Adams took the pictures
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082949/078_wghve0.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082949/078_wghve0.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082949/078_wghve0.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 1000,
   width: 975
 )
@@ -788,7 +804,7 @@ Photo.create( title: "Chinese Theater Los Angeles", description: "Adams kept the
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082948/079_oldi2f.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082948/079_oldi2f.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082948/079_oldi2f.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 1000,
   width: 1013
 )
@@ -798,7 +814,7 @@ Photo.create( title: "Big Sur 1941", description: "Adams and his wife lived for 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082953/080_qamq0q.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082953/080_qamq0q.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082953/080_qamq0q.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 1205,
   width: 911
 )
@@ -808,7 +824,7 @@ Photo.create( title: "Big Sur 1941 Fog", description: "In the early 1960s, Adams
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082953/081_neab3u.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082953/081_neab3u.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082953/081_neab3u.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 1000,
   width: 1258
 )
@@ -818,7 +834,7 @@ Photo.create( title: "Medicine Hat", description: "High, lone mountain peak, in 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082952/084_txvjb5.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082952/084_txvjb5.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082952/084_txvjb5.jpg",
-  user_id: 4,
+  user_id: first_user_id+3,
   height: 599,
   width: 767
 )
@@ -828,7 +844,7 @@ Photo.create( title: "Lake McDonald Summer", description: "This is an iconic Ans
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082951/088_gqwgjv.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082951/088_gqwgjv.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082951/088_gqwgjv.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 599,
   width: 779
 )
@@ -838,7 +854,7 @@ Photo.create( title: "Glacier 1943", description: "Evening. Looking across lake 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082953/089_ev1s0h.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082953/089_ev1s0h.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082953/089_ev1s0h.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 600,
   width: 756
 )
@@ -848,7 +864,7 @@ Photo.create( title: "Burned Forest Glacier", description: "Glacier National Par
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082953/090_l6f6nv.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082953/090_l6f6nv.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082953/090_l6f6nv.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 600,
   width: 449
 )
@@ -858,7 +874,7 @@ Photo.create( title: "Field Glacier", description: "Vertical, full view of snow 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082953/091_tsndsz.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082953/091_tsndsz.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082953/091_tsndsz.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 599,
   width: 773
 )
@@ -868,7 +884,7 @@ Photo.create( title: "Ferns", description: "Sumac, Owens Valley, California, ca.
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082954/092_ek0f7c.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082954/092_ek0f7c.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082954/092_ek0f7c.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 599,
   width: 689
 )
@@ -878,7 +894,7 @@ Photo.create( title: "Logan Pass Spring", description: "This is an iconic Ansel 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082955/093_ljkj0n.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082955/093_ljkj0n.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082955/093_ljkj0n.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 599,
   width: 760
 )
@@ -888,7 +904,7 @@ Photo.create( title: "Logan Pass West", description: "\"I find it impossible to 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082954/094_lkqxag.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082954/094_lkqxag.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082954/094_lkqxag.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 564,
   width: 800
 )
@@ -898,7 +914,7 @@ Photo.create( title: "Field Glacier Summer", description: "This is an iconic Ans
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082954/095_madn40.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082954/095_madn40.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082954/095_madn40.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 599,
   width: 773
 )
@@ -908,7 +924,7 @@ Photo.create( title: "Court of the Patriarchs", description: "\"Court of the Pat
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082954/096_tszfoh.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082954/096_tszfoh.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082954/096_tszfoh.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 800 ,
   width: 624
 )
@@ -918,7 +934,7 @@ Photo.create( title: "Zion 1937", description: "Vertical of rock formation, from
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082955/097_wzvbqr.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082955/097_wzvbqr.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082955/097_wzvbqr.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 635,
   width: 800
 )
@@ -928,7 +944,7 @@ Photo.create( title: "Yosemite Valley Winter", description: "In 1916, Adams insi
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082956/098_d8skdp.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082956/098_d8skdp.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082956/098_d8skdp.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 613,
   width: 800
 )
@@ -938,7 +954,7 @@ Photo.create( title: "Acoma Pueblo Dwellings", description: "The holdings of the
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082955/099_btfgnf.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082955/099_btfgnf.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082955/099_btfgnf.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 600,
   width: 758
 )
@@ -948,7 +964,7 @@ Photo.create( title: "Teton Range June", description: "With all art expression, 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082955/100_bpkvkl.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082955/100_bpkvkl.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082955/100_bpkvkl.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 632,
   width: 800
 )
@@ -961,7 +977,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082956/102_cjnzm3.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082956/102_cjnzm3.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082956/102_cjnzm3.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 599,
   width: 652
 )
@@ -976,7 +992,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082956/105_mwwnkz.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082956/105_mwwnkz.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082956/105_mwwnkz.jpg",
-  user_id: 5,
+  user_id: first_user_id+4,
   height: 600,
   width: 750
 )
@@ -988,7 +1004,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082958/114_kwn4et.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082958/114_kwn4et.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082958/114_kwn4et.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 600,
   width: 748
 )
@@ -999,7 +1015,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125105/116_he7ll4.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125105/116_he7ll4.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125105/116_he7ll4.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 650,
   width: 580
 )
@@ -1011,7 +1027,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125118/117_m9zwni.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125118/117_m9zwni.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125118/117_m9zwni.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 1050,
   width: 769
 )
@@ -1021,7 +1037,7 @@ Photo.create( title: "Rocky National Park", description: "Every experience is a 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473082959/117_pmho2g.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473082959/117_pmho2g.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473082959/117_pmho2g.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 599,
   width: 764
 )
@@ -1034,7 +1050,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125127/119_zwrxve.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125127/119_zwrxve.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125127/119_zwrxve.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 1142,
   width: 1425
 )
@@ -1047,7 +1063,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125105/120_oocj2s.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125105/120_oocj2s.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125105/120_oocj2s.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 1742,
   width: 1180
 )
@@ -1059,7 +1075,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125090/121_fmxvyg.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125090/121_fmxvyg.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125090/121_fmxvyg.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 1230,
   width: 1670
 )
@@ -1071,7 +1087,7 @@ Photo.create(
   description: "Vertical geyser. Part of National Park Service Portfolio.",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125108/122_stive3.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125108/122_stive3.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 1265,
   width: 900
 )
@@ -1083,7 +1099,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125143/123_ee62kl.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125143/123_ee62kl.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125143/123_ee62kl.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 1714,
   width: 1312
 )
@@ -1093,7 +1109,7 @@ Photo.create( title: "Denali", description: "Dodging and burning are steps to ta
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125200/124_hjgl4l.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125200/124_hjgl4l.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125200/124_hjgl4l.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 2528,
   width: 3194
 )
@@ -1106,7 +1122,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125134/125_pha2cf.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125134/125_pha2cf.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125134/125_pha2cf.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 813,
   width: 1046
 )
@@ -1118,7 +1134,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125175/126_flwjcl.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125175/126_flwjcl.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125175/126_flwjcl.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 1276,
   width: 1825
 )
@@ -1130,7 +1146,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125256/127_d8vzzz.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125256/127_d8vzzz.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125256/127_d8vzzz.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 1365,
   width: 2048
 )
@@ -1143,7 +1159,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125175/128_vcqwam.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125175/128_vcqwam.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125175/128_vcqwam.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 1297,
   width: 1657
 )
@@ -1155,7 +1171,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125183/129_agci3v.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125183/129_agci3v.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125183/129_agci3v.jpg",
-  user_id: 6,
+  user_id: first_user_id+5,
   height: 1104 ,
   width: 1500
 )
@@ -1165,7 +1181,7 @@ Photo.create( title: "Yosemite Falls", description: "Spring. Both the grand and 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125239/132_xhwu3t.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125239/132_xhwu3t.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125239/132_xhwu3t.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1024,
   width: 994
 )
@@ -1177,7 +1193,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125263/133_kv6n0d.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125263/133_kv6n0d.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125263/133_kv6n0d.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1280,
   width: 951
 )
@@ -1189,7 +1205,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125198/134_vbbbup.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125198/134_vbbbup.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125198/134_vbbbup.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 760,
   width: 1140
 )
@@ -1201,7 +1217,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125226/135_ws4qoa.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125226/135_ws4qoa.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125226/135_ws4qoa.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 768,
   width: 1024
 )
@@ -1213,7 +1229,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125292/136_ekstzc.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125292/136_ekstzc.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125292/136_ekstzc.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1326,
   width: 1600
 )
@@ -1225,7 +1241,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125262/137_g9xw4m.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125262/137_g9xw4m.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125262/137_g9xw4m.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 768,
   width: 1024
 )
@@ -1235,7 +1251,7 @@ Photo.create( title: "Spring Run", description: "\"It was like lying in a great 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125275/138_lowuix.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125275/138_lowuix.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125275/138_lowuix.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1080,
   width: 1767
 )
@@ -1247,7 +1263,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125303/139_wjp5r1.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125303/139_wjp5r1.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125303/139_wjp5r1.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 773,
   width: 1200
 )
@@ -1259,7 +1275,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125298/140_ootjbl.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125298/140_ootjbl.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125298/140_ootjbl.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1666,
   width: 1193
 )
@@ -1271,7 +1287,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125353/141_r8i85e.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125353/141_r8i85e.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125353/141_r8i85e.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1476,
   width: 1148
 )
@@ -1284,7 +1300,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125295/142_gbykir.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125295/142_gbykir.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125295/142_gbykir.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1200,
   width: 948
 )
@@ -1296,7 +1312,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125279/143_ef59cv.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125279/143_ef59cv.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125279/143_ef59cv.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1200,
   width: 846
 )
@@ -1306,7 +1322,7 @@ Photo.create( title: "In Glacier National Park", description: "Trees and bushes 
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125413/144_houqxp.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125413/144_houqxp.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125413/144_houqxp.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1080,
   width: 1920
 )
@@ -1319,7 +1335,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125359/145_rr5mvw.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125359/145_rr5mvw.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125359/145_rr5mvw.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1740,
   width: 1118
 )
@@ -1332,7 +1348,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125328/146_alrdkq.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125328/146_alrdkq.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125328/146_alrdkq.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1576,
   width: 1280
 )
@@ -1344,7 +1360,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125433/148_c77wfr.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125433/148_c77wfr.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125433/148_c77wfr.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 2927,
   width: 3740
 )
@@ -1357,7 +1373,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125387/149_m8nt1i.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125387/149_m8nt1i.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125387/149_m8nt1i.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1080,
   width: 1536
 )
@@ -1369,7 +1385,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125375/150_xcls68.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125375/150_xcls68.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125375/150_xcls68.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1200,
   width: 952
 )
@@ -1381,7 +1397,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125632/154_ixtbhj.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125632/154_ixtbhj.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125632/154_ixtbhj.jpg",
-  user_id: 7,
+  user_id: first_user_id+6,
   height: 1596,
   width: 2400
 )
@@ -1393,7 +1409,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125493/171_s628q6.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125493/171_s628q6.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125493/171_s628q6.jpg",
-  user_id: 8,
+  user_id: first_user_id+7,
   height: 1302,
   width: 1857
 )
@@ -1405,7 +1421,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125485/172_me7urt.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125485/172_me7urt.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125485/172_me7urt.jpg",
-  user_id: 8,
+  user_id: first_user_id+7,
   height: 1071,
   width: 1600
 )
@@ -1417,7 +1433,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125507/174_psvrdm.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125507/174_psvrdm.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125507/174_psvrdm.jpg",
-  user_id: 8,
+  user_id: first_user_id+7,
   height: 2729,
   width: 3423
 )
@@ -1429,7 +1445,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125557/175_thjqim.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125557/175_thjqim.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125557/175_thjqim.jpg",
-  user_id: 8,
+  user_id: first_user_id+7,
   height: 1721,
   width: 2200
 )
@@ -1439,7 +1455,7 @@ Photo.create( title: "Bracken", description: "Denali, Alaska.",
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125605/176_bkhxco.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125605/176_bkhxco.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125605/176_bkhxco.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 2000,
   width: 1435
 )
@@ -1452,7 +1468,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125527/177_w462xj.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125527/177_w462xj.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125527/177_w462xj.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 768,
   width: 1024
 )
@@ -1465,7 +1481,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125555/178_fanxet.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125555/178_fanxet.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125555/178_fanxet.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 1600,
   width: 1067
 )
@@ -1477,7 +1493,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125561/179_dvpnly.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125561/179_dvpnly.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125561/179_dvpnly.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 774,
   width: 1024
 )
@@ -1490,7 +1506,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125568/180_bokfjp.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125568/180_bokfjp.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125568/180_bokfjp.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 480,
   width: 380
 )
@@ -1502,7 +1518,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125588/181_awmh3x.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125588/181_awmh3x.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125588/181_awmh3x.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 1000,
   width: 1013
 )
@@ -1512,7 +1528,7 @@ Photo.create( title: "View Down Wilshire", description: "Los Angeles, 1939.",
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125601/182_pzwyac.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125601/182_pzwyac.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125601/182_pzwyac.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 999,
   width: 970
 )
@@ -1525,7 +1541,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125641/184_qyobpm.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125641/184_qyobpm.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125641/184_qyobpm.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 1000,
   width: 1005
 )
@@ -1537,7 +1553,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125638/185_wvuxsg.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125638/185_wvuxsg.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125638/185_wvuxsg.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 1117,
   width: 1475
 )
@@ -1549,7 +1565,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125673/187_gvgebu.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125673/187_gvgebu.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125673/187_gvgebu.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 1250,
   width: 1651
 )
@@ -1561,7 +1577,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125718/188_h3iuyl.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125718/188_h3iuyl.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125718/188_h3iuyl.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 2108,
   width: 3000
 )
@@ -1573,7 +1589,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125694/189_bxdwai.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125694/189_bxdwai.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125694/189_bxdwai.jpg",
-  user_id: 9,
+  user_id: first_user_id+8,
   height: 1346,
   width: 1800
 )
@@ -1586,7 +1602,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125702/192_tay9hz.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125702/192_tay9hz.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125702/192_tay9hz.jpg",
-  user_id: 10,
+  user_id: first_user_id+9,
   height: 837,
   width: 1065
 )
@@ -1599,7 +1615,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125751/194_av1blt.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125751/194_av1blt.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125751/194_av1blt.jpg",
-  user_id: 10,
+  user_id: first_user_id+9,
   height: 934,
   width: 1024
 )
@@ -1612,7 +1628,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125823/197_cbw0rq.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125823/197_cbw0rq.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125823/197_cbw0rq.jpg",
-  user_id: 10,
+  user_id: first_user_id+9,
   height: 906,
   width: 1200
 )
@@ -1623,7 +1639,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125886/199_zifsn8.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125886/199_zifsn8.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125886/199_zifsn8.jpg",
-  user_id: 10,
+  user_id: first_user_id+9,
   height: 1311,
   width: 1713
 )
@@ -1634,7 +1650,7 @@ Photo.create(
   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473125891/200_lbeh5h.jpg",
   thumbnail_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/c_scale,h_320/v1473125891/200_lbeh5h.jpg",
   mini_square_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/w_50,h_50,c_fill,g_east/v1473125891/200_lbeh5h.jpg",
-  user_id: 10,
+  user_id: first_user_id+9,
   height: 1320,
   width: 1700
 )
