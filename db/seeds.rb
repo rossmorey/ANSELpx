@@ -156,6 +156,15 @@ end
 # 10 first_user_id+9
 # 11 first_user_id+10
 
+# Photo.create(
+#   title: "Mickey",
+#   description: "To be deleted...hopefully.",
+#   photo_img_url: "http://res.cloudinary.com/dhorsi7vf/image/upload/v1474040425/Mickey_Mouse_mpb4eg.png",
+#   user_id: first_user_id,
+#   width: 2100,
+#   height: 1400
+# )
+
 Photo.create(
   title: "Storm Forming Above Banner Peak",
   description: "\"I made this photograph while on the annual Sierra Club outing in Sequoia National Park, one of the most spectacular regions of the Sierra....Many speak of this image as abstract,but I was not conscious of any such definition a the time....For photographic composition I think in terms of creating configurations out of chaos.\"",
