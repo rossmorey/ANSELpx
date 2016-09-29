@@ -98,7 +98,10 @@ class SessionForm extends React.Component {
     return (
       <div className={formType + "_form_container"}>
         <div className="login-header">
-          <img src="http://themoreyfamily.net/Logo.png" />
+          <img src="http://res.cloudinary.com/dhorsi7vf/image/upload/v1475171092/logo_vj6jsp.png" />
+        </div>
+        <div className="tagline">
+          Explore the best photos of Ansel Adams
         </div>
         {form()}
       </div>
