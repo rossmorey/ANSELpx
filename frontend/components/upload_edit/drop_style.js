@@ -1,11 +1,12 @@
 const DropStyle = {
   border: '2px #8c8c8c',
-  padding: '30px',
   borderRadius: 5,
-  width: '205px',
-  height: '218px',
   borderStyle: 'dashed',
-  cursor: 'pointer'
+  height: 'calc(100% - 20px)',
+  cursor: 'pointer',
+  display: 'flex',
+  'justify-content': 'center',
+  'align-items': 'center',
 };
 
 export default DropStyle;
