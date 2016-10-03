@@ -1,21 +1,11 @@
 
 .login_form_box, .signup_form_box {
   padding: 35px;
-  display: flex;
-  flex-direction: column;
   background:black;
   opacity:.7;
   color: white;
   width: 350px;
   margin: 0 auto;
-}
-
-.login_form_box {
-    height: 230px;
-}
-
-.signup_form_box {
-    height: 380px;
 }
 
 .login_form_box a, .signup_form_box a {
@@ -29,8 +19,7 @@
   background-position: 50% 50%;
 }
 
-.login_form_container a,
-.signup_form_container a {
+.login_form_container a, .signup_form_container a {
   text-decoration: none;
   color:inherit;
   font-family: Helvetica, Arial, sans-serif;
@@ -45,13 +34,9 @@ input[type="text"], input[type="password"], textarea {
   height:40px;
   width: 98%;
   font-size: larger;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 200;
-}
-
-input[type="submit"] {
-  margin-right: 30px;
 }
 
 input[type="submit"], button.guest {
@@ -62,11 +47,25 @@ input[type="submit"], button.guest {
   background-color: rgba(0,0,0,.5);
   color: white;
   font-size: larger;
-  margin-bottom: 30px;
+  margin: 20px 0px 30px 0px;
   cursor: pointer;
   cursor: hand;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 200;
+}
+
+input[type="submit"] {
+  margin-right: 30px;
+}
+
+.login_form_container input,
+.signup_form_container input {
+  margin-top:20px;
+}
+
+.login_form_container .username,
+.signup_form_container input[type="text"]:first-child {
+  margin-top:0px;
 }
 
 .login_form_container input[type="submit"]:hover,
@@ -90,4 +89,10 @@ textarea:focus, input:focus{
   text-shadow: 0px 0px 10px #000000;
   text-align: center;
   margin-bottom: 40px;
+}
+
+.error {
+  width: 100%;
+  text-align: center;
+  color: #ff7a7a;
 }

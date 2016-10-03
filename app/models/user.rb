@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   attr_reader :password
 
   validates :password, length: { minimum: 6 }, allow_nil: :true
@@ -10,14 +11,14 @@ class User < ActiveRecord::Base
   has_many :photos
 
   has_many :follows,
-  foreign_key: :follower_id,
-  class_name: :Follow,
-  primary_key: :id
+    foreign_key: :follower_id,
+    class_name: :Follow,
+    primary_key: :id
 
   has_many :followings,
-  foreign_key: :followed_id,
-  class_name: :Follow,
-  primary_key: :id
+    foreign_key: :followed_id,
+    class_name: :Follow,
+    primary_key: :id
 
   has_many :followers,
     through: :followings,
@@ -78,6 +79,5 @@ class User < ActiveRecord::Base
 
   def ensure_user_photo
     self.user_img_url ||= "http://res.cloudinary.com/dhorsi7vf/image/upload/v1473355795/guestuser_gdidkh.png"
-    self.save!
   end
 end

@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
+  window.store = store;
+
   Modal.setAppElement(document.body);
 
   const root = document.getElementById('root');

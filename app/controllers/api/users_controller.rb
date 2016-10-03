@@ -1,8 +1,8 @@
 class Api::UsersController < ApplicationController
 
-  # This method returns a random 5 users who the current user is not following
+  # This method returns a random 5 users
   def index
-    users = User.all-[current_user]
+    users = User.all - [current_user]
     @users = users.shuffle.take(5)
   end
 
@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
       login(@user)
       render 'api/users/show'
     else
-      render json: @user.errors.full_messages, status: 422
+      render json: @user.errors.to_hash, status: 422
     end
   end
 
