@@ -5,8 +5,8 @@ const DropStyle = {
   height: 'calc(100% - 20px)',
   cursor: 'pointer',
   display: 'flex',
-  'justify-content': 'center',
-  'align-items': 'center',
+  justifyContent: 'center',
+  alignItems: 'center',
 };
 
 export default DropStyle;

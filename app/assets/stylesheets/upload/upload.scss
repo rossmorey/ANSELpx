@@ -47,9 +47,8 @@ button.closeButton:hover {
 .vertical-line {
   border-left: 1px solid $medium-grey;
   width: 1px;
-  height: 280px;
+  height: calc(100% - 20px);
   display:inline-block;
-  margin-top: 12px;
 }
 
 .form-contents {
