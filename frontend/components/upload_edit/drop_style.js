@@ -6,7 +6,7 @@ const DropStyle = {
   cursor: 'pointer',
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center',
+  alignItems: 'center'
 };
 
 export default DropStyle;

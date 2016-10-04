@@ -20,8 +20,8 @@ const ModalStyle = {
      padding         : '20px',
      opacity         : '0',
      transition      : 'opacity .5s',
-     backgroundColor : '#f5f5f5'
-
+     backgroundColor : '#f5f5f5',
+     overflowY       : 'hidden'
    }
 };
 
