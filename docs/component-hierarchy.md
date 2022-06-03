@@ -5,20 +5,23 @@
 **App**
 
 **SessionFormContainer**
+
 - SessionForm
 
 **HomeContainer**
-  - FeedContainer
-    + FeedItem
-  - Sidebar
-    + UserBox
-    + FollowBox
-      - FollowBoxItem
+
+- FeedContainer
+  - FeedItem
+- Sidebar
+  - UserBox
+  - FollowBox
+    - FollowBoxItem
 
 **UserContainer**
-  - UserFeature
-  - PhotoContainer
-    - PhotoItem
+
+- UserFeature
+- PhotoContainer
+  - PhotoItem
 
 **SinglePhotoContainer**
 
@@ -26,10 +29,10 @@
 
 **UploadContainer** /??
 
-http://www.anselpx.com
+https://anselpx.herokuapp.com/
 
 ##Routes
-|Path   | Component   |
+|Path | Component |
 |-------|-------------|
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
